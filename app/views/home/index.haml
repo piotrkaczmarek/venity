@@ -1,8 +1,3 @@
-.container-fluid{'ng-app' => 'hamurabi'}
-  .panel.panel-success
-    .panel-heading
-      %h1{'ng-if' => 'name'} Hello, {{ name }}
-    .panel-body
-      %form.form-inline
-        .form-group
-          %input.form-controll{type: 'text', placeholder: 'Enter your name', autofocus: true, 'ng-model' => 'name'}
+%div{'ng-app' => 'hamurabi'}
+  .view-container
+    .view-frame.animate-view{'ui-view' => true}
