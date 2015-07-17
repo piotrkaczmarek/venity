@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('hamurabi', [
+    .module('venity', [
       'ui.router',
       'templates',
       'Devise'

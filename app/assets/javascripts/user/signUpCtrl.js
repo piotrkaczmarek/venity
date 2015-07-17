@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular
-    .module('hamurabi')
+    .module('venity')
     .controller('SignUpCtrl', SignUpCtrl);
 
     SignUpCtrl.$inject = ['AuthFactory'];

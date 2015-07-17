@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular
-    .module('hamurabi')
+    .module('venity')
     .controller('MainCtrl', MainCtrl);
 
     MainCtrl.$inject = ['Auth', 'currentUser', 'AuthFactory', '$stateParams'];

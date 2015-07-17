@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular
-    .module('hamurabi')
+    .module('venity')
     .controller('BaseCtrl', BaseCtrl);
 
     BaseCtrl.$inject = [];

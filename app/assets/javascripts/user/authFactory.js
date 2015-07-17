@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('hamurabi')
+    .module('venity')
     .factory('AuthFactory', AuthFactory);
 
   AuthFactory.$inject = ['Auth', '$state'];
