@@ -1,0 +1,4 @@
+%div{'ng-if' => 'mainCtrl.isAuthenticated'}
+  Hello {{mainCtrl.currentUser.email}} !
+%div{'ng-if' => '!mainCtrl.isAuthenticated'}
+  Not logged in

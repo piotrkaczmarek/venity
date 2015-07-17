@@ -15,7 +15,7 @@ gem 'sprockets', "~> 2"
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
-
+gem 'devise', '~> 3.4.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
