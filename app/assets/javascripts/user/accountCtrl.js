@@ -2,11 +2,11 @@
   'use strict';
   angular
     .module('venity')
-    .controller('SignInCtrl', SignInCtrl);
+    .controller('AccountCtrl', AccountCtrl);
 
-    SignInCtrl.$inject = ['AuthFactory'];
+    AccountCtrl.$inject = ['AuthFactory'];
 
-    function SignInCtrl(AuthFactory) {
+    function AccountCtrl(AuthFactory) {
       var vm = this;
       vm.authFactory = AuthFactory;
       vm.getErrors = AuthFactory.getErrors;

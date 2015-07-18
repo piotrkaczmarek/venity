@@ -16,7 +16,7 @@
         .state('main', {
           abstract: true,
           controller: 'MainCtrl as mainCtrl',
-          templateUrl: 'main.html',
+          templateUrl: 'main/main.html',
           resolve: {
             'currentUser': ['Auth', function(Auth) {
               return Auth.currentUser()
@@ -30,19 +30,40 @@
         })
         .state('main.home', {
           url: '/',
-          controller: 'BaseCtrl as vm',
-          templateUrl: 'home.html'
+          controller: 'HomeCtrl as vm',
+          templateUrl: 'main/home.html'
+        })
+        .state('main.account', {
+          url: '/account',
+          controller: 'AccountCtrl as vm',
+          templateUrl: 'user/account.html',
+          resolve: { authenticate: authenticate() }
         })
         .state('main.signUp', {
           url: '/sign-up',
           controller: 'SignUpCtrl as vm',
-          templateUrl: 'sign-up.html'
+          templateUrl: 'user/sign-up.html'
         })
         .state('main.signIn', {
           url: '/sign-in',
           controller: 'SignInCtrl as vm',
-          templateUrl: 'sign-in.html'
+          templateUrl: 'user/sign-in.html'
         })
+
+        // http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication
+        function authenticate() {
+          return ['Auth', '$q', '$state', '$timeout', function(Auth, $q, $state, $timeout) {
+            if(Auth.isAuthenticated()) {
+              return $q.when();
+            } else {
+              $timeout(function() {
+                $state.go('main.signIn')
+              })
+              return $q.return();
+            }
+          }];
+        }
+
     }]);
 })();
 
