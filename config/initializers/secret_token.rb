@@ -16,4 +16,4 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-Venity::Application.config.secret_token = '7bbe83ee04acd42498349bf2cedd5c89d19dde3f420616bd0d04a6e614c847e0ac6b2e4e69dec11654bb4aa289554f209a7d7827fde26164c362b84d2e110eee'
+Venity::Application.config.secret_token = ENV['SECRET_TOKEN']

@@ -1,8 +1,12 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
+
+gem 'puma'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -11,7 +15,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'haml-rails'
-gem 'sprockets', "~> 2"
+gem 'sprockets', '~> 2'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
@@ -36,6 +40,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'foreman'
+group :production, :staging do
+  gem 'rails_12factor'
+  gem 'rails_stdout_logging'
+  gem 'rails_serve_static_assets'
+end
 
 group :development do
   gem 'better_errors'

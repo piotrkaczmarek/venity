@@ -7,7 +7,7 @@
       'templates',
       'Devise'
     ])
-    .config(function($stateProvider, $locationProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
       $locationProvider.html5Mode(true);
 
       $urlRouterProvider.otherwise('/');
@@ -18,14 +18,14 @@
           controller: 'MainCtrl as mainCtrl',
           templateUrl: 'main.html',
           resolve: {
-            currentUser: function(Auth) {
+            'currentUser': ['Auth', function(Auth) {
               return Auth.currentUser()
                 .then(function(user) {
                   return user;
                 }, function(error) {
                   return;
                 })
-            }
+            }]
           }
         })
         .state('main.home', {
@@ -43,6 +43,6 @@
           controller: 'SignInCtrl as vm',
           templateUrl: 'sign-in.html'
         })
-    });
+    }]);
 })();
 
