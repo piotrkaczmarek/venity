@@ -1,0 +1,4 @@
+# Configuration file for the Rubocop static analysis tool
+# https://github.com/bbatsov/rubocop
+
+inherit_from: rubocop-ignore.yml

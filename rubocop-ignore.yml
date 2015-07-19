@@ -1,0 +1,22 @@
+# Configuration file for the Rubocop static analysis tool
+# https://github.com/bbatsov/rubocop
+
+Encoding:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+ActionFilter:
+  Enabled: false
+
+LineLength:
+  Max: 110
+
+Rails/ActionFilter:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - db/**
+  RunRailsCops: true
