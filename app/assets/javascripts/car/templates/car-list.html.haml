@@ -1,0 +1,9 @@
+%h4 Cars
+%ul
+  %li.car{'ng-repeat' => 'car in vm.cars'}
+    .make
+      Make: {{car.make}}
+    .model
+      Model: {{car.model}}
+    .production-year
+      Production Year: {{car.production_year}}

@@ -5,13 +5,13 @@
     .module('venity')
     .factory('ProfileSrv', ProfileSrv);
 
-  ProfileSrv.$inject = ['Auth', '$http'];
+  ProfileSrv.$inject = ['$http'];
 
-  function ProfileSrv(Auth, $http) {
+  function ProfileSrv($http) {
     var factory = {
       getMy: getMy,
       update: update
-    }
+    };
     return factory;
 
     function getMy() {
@@ -19,10 +19,7 @@
     }
 
     function update(profile) {
-      return $http.put('api/me', {
-        first_name: profile.first_name,
-        last_name: profile.last_name
-      });
+      return $http.put('api/me', profile);
     }
   }
 })();

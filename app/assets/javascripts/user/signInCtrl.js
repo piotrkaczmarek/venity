@@ -12,13 +12,13 @@
 
       function signIn() {
         Auth.login({email: vm.email, password: vm.password})
-          .then(redirectToHome, failure);
+          .then(redirectToHome, displayErrors);
 
         function redirectToHome() {
           $state.go('main.home', {}, {reload: true});
         }
 
-        function failure(error) {
+        function displayErrors(error) {
           vm.errors = error.data.error;
         }
       }

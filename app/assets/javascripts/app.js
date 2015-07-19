@@ -35,6 +35,16 @@
           controller: 'HomeCtrl as vm',
           templateUrl: 'main/templates/home.html'
         })
+        .state('main.carList', {
+          url: '/cars',
+          controller: 'CarListCtrl as vm',
+          templateUrl: 'car/templates/car-list.html'
+        })
+        .state('main.carNew', {
+          url: '/cars/new',
+          controller: 'CarNewCtrl as vm',
+          templateUrl: 'car/templates/car-new.html'
+        })
         .state('main.profile', {
           url: '/profile',
           controller: 'ProfileCtrl as vm',

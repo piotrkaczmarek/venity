@@ -2,8 +2,9 @@
   %h1.logo{'ui-sref' => 'main.home'}
     VENITY
   .buttons
-    %a{'ui-sref' => 'main.cars'} Cars
+    %a{'ui-sref' => 'main.carList'} Car List
     %div{'ng-if' => 'mainCtrl.isAuthenticated'}
+      %a{'ui-sref' => 'main.carNew'} Add a car
       %a{'ui-sref' => 'main.profile'} Profile
       %a{'ng-click' => 'mainCtrl.signOut()' } Sign Out
     %div{'ng-if' => '!mainCtrl.isAuthenticated'}

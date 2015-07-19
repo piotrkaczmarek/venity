@@ -12,18 +12,18 @@
 
       function signUp() {
         Auth.register({email: vm.email, password: vm.password})
-          .then(registerSuccess, failure)
+          .then(registerSuccess, displayErrors)
 
         function registerSuccess() {
           Auth.login({email: vm.email, password: vm.password})
-            .then(redirectToHome, failure)
+            .then(redirectToHome, displayErrors)
         }
 
         function redirectToHome() {
           $state.go('main.home', {}, {reload: true});
         }
 
-        function failure(error) {
+        function displayErrors(error) {
           vm.errors = error.data.errors;
         }
       }

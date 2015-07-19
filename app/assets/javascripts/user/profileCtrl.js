@@ -11,18 +11,20 @@
       vm.update = update;
 
       ProfileSrv.getMy()
-        .success(success).error(failure);
+        .success(success)
+        .error(displayErrors);
 
       function update() {
         ProfileSrv.update(vm.profile)
-          .success(success).error(failure);
+          .success(success)
+          .error(displayErrors);
       }
 
       function success(data) {
         vm.profile = data.profile;
       }
 
-      function failure(error) {
+      function displayErrors(error) {
         vm.errors = error;
       }
     }

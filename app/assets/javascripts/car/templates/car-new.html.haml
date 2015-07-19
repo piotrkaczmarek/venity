@@ -1,0 +1,13 @@
+%form
+  .error{'ng-if' => 'vm.errors'}
+    {{vm.errors}}
+  .make
+    %label Make:
+    %input{type: 'text', autofocus: true, 'ng-model' => 'vm.car.make'}
+  .model
+    %label Model:
+    %input{type: 'text', autofocus: true, 'ng-model' => 'vm.car.model'}
+  .production-year
+    %label Production Year:
+    %input{type: 'number', autofocus: true, 'ng-model' => 'vm.car.production_year'}
+  %button{'ng-click' => 'vm.create()'}Create
