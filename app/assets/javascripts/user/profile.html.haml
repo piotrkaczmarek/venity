@@ -1,0 +1,13 @@
+%h4 Your Profile
+%form
+  .errors{'ng-if' => 'vm.errors'}
+    Errors: {{vm.errors}}
+  %ul
+    %li Email: {{mainCtrl.currentUser.email}}
+    %li
+      First Name:
+      %input{'ng-model' => 'vm.profile.first_name'}
+    %li
+      Last Name:
+      %input{'ng-model' => 'vm.profile.last_name'}
+  %button{'ng-click' => 'vm.update()'} Update

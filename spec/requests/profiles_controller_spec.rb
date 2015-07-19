@@ -20,4 +20,46 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
       end
     end
   end
+
+  describe 'PUT #update' do
+    let(:user) { create(:user) }
+
+    subject { api_put(user, api_me_path, params) }
+
+    context 'when params are valid' do
+      let(:params) do
+        {
+          first_name: FFaker::Name.first_name,
+          last_name: FFaker::Name.last_name
+        }
+      end
+
+      it 'updates profile' do
+        expect { subject }.to change { user.profile.first_name }
+      end
+
+      it 'returns updated profile' do
+        subject
+        expect(json_response['profile']['first_name']).to eq(params[:first_name])
+      end
+    end
+
+    context 'when one param is not valid' do
+      let(:params) do
+        {
+          first_name: '',
+          last_name: FFaker::Name.last_name
+        }
+      end
+
+      it 'does not update profile' do
+        expect { subject }.to_not change { user.profile.reload.last_name }
+      end
+
+      it 'returns errors' do
+        subject
+        expect(json_response['errors']).to include('first_name')
+      end
+    end
+  end
 end

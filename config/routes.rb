@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   api(vendor_string: 'venity', default_version: 1) do
     version(1) do
       get :me, to: 'profiles#me'
+      put :me, to: 'profiles#update'
     end
   end
   # Example of regular route:

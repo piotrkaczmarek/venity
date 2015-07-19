@@ -7,10 +7,12 @@
       'templates',
       'Devise'
     ])
-    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function($stateProvider, $locationProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider) {
       $locationProvider.html5Mode(true);
 
       $urlRouterProvider.otherwise('/');
+
+      $httpProvider.defaults.headers.common.Accept = 'application/vnd.venity+json; version=1'
 
       $stateProvider
         .state('main', {
@@ -33,11 +35,16 @@
           controller: 'HomeCtrl as vm',
           templateUrl: 'main/home.html'
         })
-        .state('main.account', {
-          url: '/account',
-          controller: 'AccountCtrl as vm',
-          templateUrl: 'user/account.html',
-          resolve: { authenticate: authenticate() }
+        .state('main.profile', {
+          url: '/profile',
+          controller: 'ProfileCtrl as vm',
+          templateUrl: 'user/profile.html',
+          resolve: {
+            authenticate: authenticate(),
+            profile: ['MyProfileFactory', function(MyProfileFactory) {
+              return MyProfileFactory.me();
+            }]
+          }
         })
         .state('main.signUp', {
           url: '/sign-up',
@@ -52,15 +59,15 @@
 
         // http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication
         function authenticate() {
-          return ['Auth', '$q', '$state', '$timeout', function(Auth, $q, $state, $timeout) {
-            if(Auth.isAuthenticated()) {
-              return $q.when();
-            } else {
+          return ['Auth', '$state', '$timeout', function(Auth, $state, $timeout) {
+            Auth.currentUser().then(function(user) {
+              return user;
+            }, function(error) {
               $timeout(function() {
                 $state.go('main.signIn')
-              })
-              return $q.return();
-            }
+              });
+              return error;
+            })
           }];
         }
 

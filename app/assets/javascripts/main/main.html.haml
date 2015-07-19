@@ -2,7 +2,7 @@
   %h1.logo{'ui-sref' => 'main.home'}
     VENITY
   .buttons{'ng-if' => 'mainCtrl.isAuthenticated'}
-    %a{'ui-sref' => 'main.account'} Account
+    %a{'ui-sref' => 'main.profile'} Profile
     %a{'ng-click' => 'mainCtrl.signOut()' } Sign Out
   .buttons{'ng-if' => '!mainCtrl.isAuthenticated'}
     %a{'ui-sref' => 'main.signIn'} Sign In
