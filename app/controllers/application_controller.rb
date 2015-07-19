@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
 
   respond_to :json
   self.responder = Responder
+
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found!
+
+  private
+
+  def not_found!
+    render json: { message: 'record not found' }, status: :not_found
+  end
 end

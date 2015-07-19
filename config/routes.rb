@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     version(1) do
       get :me, to: 'profiles#me'
       put :me, to: 'profiles#update'
+
+      resources :cars, only: [:create, :update]
+      resources :profiles, only: [:index] do
+        resources :cars
+      end
     end
   end
   # Example of regular route:
