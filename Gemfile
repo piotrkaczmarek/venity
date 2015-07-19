@@ -20,6 +20,8 @@ gem 'bower-rails'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
 gem 'devise', '~> 3.4.0'
+gem 'api-versions'
+gem 'active_model_serializers'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -39,6 +41,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'ffaker'
 
 gem 'foreman'
 group :production, :staging do
@@ -74,4 +78,3 @@ group :development, :test do
   gem 'spring'
   gem 'factory_girl_rails'
 end
-
