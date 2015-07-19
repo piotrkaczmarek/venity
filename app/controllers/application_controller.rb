@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
   def not_found!
     render json: { message: 'record not found' }, status: :not_found
   end
+
+  def ack!(message = 'OK')
+    render json: { message: message }, status: :ok
+  end
 end
