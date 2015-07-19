@@ -1,0 +1,12 @@
+.navbar
+  %h1.logo{'ui-sref' => 'main.home'}
+    VENITY
+  .buttons
+    %a{'ui-sref' => 'main.cars'} Cars
+    %div{'ng-if' => 'mainCtrl.isAuthenticated'}
+      %a{'ui-sref' => 'main.profile'} Profile
+      %a{'ng-click' => 'mainCtrl.signOut()' } Sign Out
+    %div{'ng-if' => '!mainCtrl.isAuthenticated'}
+      %a{'ui-sref' => 'main.signIn'} Sign In
+      %a{'ui-sref' => 'main.signUp'} Sign Up
+.content{'ui-view' => true}

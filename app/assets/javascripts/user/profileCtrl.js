@@ -4,24 +4,26 @@
     .module('venity')
     .controller('ProfileCtrl', ProfileCtrl);
 
-    ProfileCtrl.$inject = ['AuthFactory', 'profile', 'MyProfileFactory'];
+    ProfileCtrl.$inject = ['ProfileSrv'];
 
-    function ProfileCtrl(AuthFactory, profile, MyProfileFactory) {
+    function ProfileCtrl(ProfileSrv) {
       var vm = this;
-      vm.authFactory = AuthFactory;
-      vm.getErrors = AuthFactory.getErrors;
-      vm.signIn = AuthFactory.signIn;
-      vm.profile = profile.data.profile;
       vm.update = update;
-      vm.errors = '';
 
-      AuthFactory.clearErrors();
+      ProfileSrv.getMy()
+        .success(success).error(failure);
 
       function update() {
-        MyProfileFactory.update(vm.profile)
-          .error(function(error) {
-            vm.errors = error.errors;
-          })
+        ProfileSrv.update(vm.profile)
+          .success(success).error(failure);
+      }
+
+      function success(data) {
+        vm.profile = data.profile;
+      }
+
+      function failure(error) {
+        vm.errors = error;
       }
     }
 })();

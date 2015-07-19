@@ -3,19 +3,18 @@
 
   angular
     .module('venity')
-    .factory('MyProfileFactory', MyProfileFactory);
+    .factory('ProfileSrv', ProfileSrv);
 
-  MyProfileFactory.$inject = ['Auth', '$http'];
+  ProfileSrv.$inject = ['Auth', '$http'];
 
-  function MyProfileFactory(Auth, $http) {
-    var errors = '';
-
-    return {
-      me: me,
+  function ProfileSrv(Auth, $http) {
+    var factory = {
+      getMy: getMy,
       update: update
-    };
+    }
+    return factory;
 
-    function me() {
+    function getMy() {
       return $http.get('api/me');
     }
 
@@ -23,7 +22,7 @@
       return $http.put('api/me', {
         first_name: profile.first_name,
         last_name: profile.last_name
-      })
+      });
     }
   }
 })();

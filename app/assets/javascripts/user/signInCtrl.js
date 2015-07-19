@@ -4,14 +4,23 @@
     .module('venity')
     .controller('SignInCtrl', SignInCtrl);
 
-    SignInCtrl.$inject = ['AuthFactory'];
+    SignInCtrl.$inject = ['Auth', '$state'];
 
-    function SignInCtrl(AuthFactory) {
+    function SignInCtrl(Auth, $state) {
       var vm = this;
-      vm.authFactory = AuthFactory;
-      vm.getErrors = AuthFactory.getErrors;
-      vm.signIn = AuthFactory.signIn;
+      vm.signIn = signIn;
 
-      AuthFactory.clearErrors();
+      function signIn() {
+        Auth.login({email: vm.email, password: vm.password})
+          .then(redirectToHome, failure);
+
+        function redirectToHome() {
+          $state.go('main.home', {}, {reload: true});
+        }
+
+        function failure(error) {
+          vm.errors = error.data.error;
+        }
+      }
     }
 })();

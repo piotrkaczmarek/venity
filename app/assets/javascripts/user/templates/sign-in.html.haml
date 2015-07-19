@@ -1,6 +1,6 @@
 %form
-  .error{'ng-if' => 'vm.getErrors()'}
-    {{vm.getErrors()}}
+  .error{'ng-if' => 'vm.errors'}
+    {{vm.errors}}
   %input{type: 'text', placeholder: 'Email', autofocus: true, 'ng-model' => 'vm.email'}
   %input{type: 'password', placeholder: 'Password', autofocus: true, 'ng-model' => 'vm.password'}
-  %button{'ng-click' => 'vm.authFactory.signIn(vm.email, vm.password)'}Sign In
+  %button{'ng-click' => 'vm.signIn()'}Sign In

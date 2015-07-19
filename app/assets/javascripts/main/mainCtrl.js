@@ -4,12 +4,19 @@
     .module('venity')
     .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['Auth', 'currentUser', 'AuthFactory', '$stateParams'];
+    MainCtrl.$inject = ['Auth', 'currentUser', '$state'];
 
-    function MainCtrl(Auth, currentUser, AuthFactory, $stateParams) {
+    function MainCtrl(Auth, currentUser, $state) {
       var vm = this;
-      vm.signOut = AuthFactory.signOut;
       vm.isAuthenticated = Auth.isAuthenticated();
       vm.currentUser = currentUser;
+      vm.signOut = signOut;
+
+      function signOut() {
+        Auth.logout()
+          .then(function() {
+            $state.go('main.home', {}, { reload: true });
+          })
+      }
     }
 })();
