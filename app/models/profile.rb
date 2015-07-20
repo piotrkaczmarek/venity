@@ -1,6 +1,6 @@
 class Profile < ActiveRecord::Base
-  belongs_to :user
-  has_many :cars
+  has_one :user
+  has_many :cars, foreign_key: :owner_id, dependent: :destroy
 
   validates :first_name, length: { minimum: 1 }, on: :update
   validates :last_name,  length: { minimum: 1 }, on: :update

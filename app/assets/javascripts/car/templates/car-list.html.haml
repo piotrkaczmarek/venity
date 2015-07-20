@@ -1,9 +1,12 @@
-%h4 Cars
+%h4 Car List
 %ul
-  %li.car{'ng-repeat' => 'car in vm.cars'}
-    .make
-      Make: {{car.make}}
-    .model
-      Model: {{car.model}}
-    .production-year
-      Production Year: {{car.production_year}}
+  %li{'ng-repeat' => 'car in vm.cars'}
+    .car{'ui-sref' => 'main.carDetails({carId: car.id})'}
+      .make
+        Make: {{car.make}}
+      .model
+        Model: {{car.model}}
+      .production-year
+        Production Year: {{car.production_year}}
+      .owner
+        Owner: {{car.owner.first_name + ' ' + car.owner.last_name}}

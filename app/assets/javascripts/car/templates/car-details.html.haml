@@ -1,0 +1,12 @@
+%h4 Car page
+%a{'ng-if' => 'vm.owned', 'ui-sref' => 'main.carEdit({carId: vm.car.id})'}
+  Edit
+.car
+  .make
+    Make: {{vm.car.make}}
+  .model
+    Model: {{vm.car.model}}
+  .production-year
+    Production Year: {{vm.car.production_year}}
+  .owner
+    Owner: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}

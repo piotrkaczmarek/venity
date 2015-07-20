@@ -1,10 +1,15 @@
 module Api
   module V1
     class CarsController < ApplicationController
-      skip_before_action :authenticate_user!, only: [:index]
+      skip_before_action :authenticate_user!, only: [:index, :show]
 
       def index
         respond_with(Car.all, each_serializer: CarSerializer)
+      end
+
+      def show
+        car = Car.find(params[:id])
+        respond_with(car, serializer: CarSerializer)
       end
 
       def create

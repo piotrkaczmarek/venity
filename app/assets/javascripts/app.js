@@ -45,6 +45,16 @@
           controller: 'CarNewCtrl as vm',
           templateUrl: 'car/templates/car-new.html'
         })
+        .state('main.carDetails', {
+          url: '/cars/{carId:[0-9]{1,8}}',
+          controller: 'CarDetailsCtrl as vm',
+          templateUrl: 'car/templates/car-details.html'
+        })
+        .state('main.carEdit', {
+          url: '/cars/{carId:[0-9]{1,8}}/edit',
+          controller: 'CarEditCtrl as vm',
+          templateUrl: 'car/templates/car-edit.html'
+        })
         .state('main.profile', {
           url: '/profile',
           controller: 'ProfileCtrl as vm',

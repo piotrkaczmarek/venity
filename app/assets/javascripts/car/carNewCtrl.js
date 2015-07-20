@@ -8,7 +8,9 @@
 
     function CarNewCtrl(CarSrv, $state) {
       var vm = this;
-      vm.car = {};
+      vm.car = {
+        production_year: 2015
+      };
       vm.create = create;
 
       function create() {

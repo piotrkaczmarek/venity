@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get :me, to: 'profiles#me'
       put :me, to: 'profiles#update'
 
-      resources :cars, only: [:index, :create, :update, :destroy]
+      resources :cars, except: [:edit]
     end
   end
   # Example of regular route:
