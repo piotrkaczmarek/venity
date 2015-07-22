@@ -51,7 +51,7 @@
     }
 
     function isOwned(ownerId) {
-      return ownerId === Auth._currentUser.profile_id;
+      return Auth._currentUser && Auth._currentUser.profile_id === ownerId;
     }
   }
 })();

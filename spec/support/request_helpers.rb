@@ -18,8 +18,6 @@ module RequestHelpers
     @json_response ||= JSON.parse(response.body)
   end
 
-  private
-
   def stub_warden(user)
     warden = Warden::Proxy.new({}, warden_manager)
     warden.set_user(user, scope: :user)

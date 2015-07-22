@@ -1,6 +1,16 @@
 %form
   .error{'ng-if' => 'vm.errors'}
     {{vm.errors}}
-  %input{type: 'text', placeholder: 'Email', autofocus: true, 'ng-model' => 'vm.email'}
-  %input{type: 'password', placeholder: 'Password', autofocus: true, 'ng-model' => 'vm.password'}
+  .first-name
+    First Name:
+    %input{'ng-model' => 'vm.first_name'}
+  .last-name
+    Last Name:
+    %input{'ng-model' => 'vm.last_name'}
+  .email
+    Email:
+    %input{type: 'text', placeholder: 'Email', autofocus: true, 'ng-model' => 'vm.email'}
+  .password
+    Password:
+    %input{type: 'password', placeholder: 'Password', autofocus: true, 'ng-model' => 'vm.password'}
   %button{'ng-click' => 'vm.signUp()'}Sign Up

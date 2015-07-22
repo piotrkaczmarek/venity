@@ -4,4 +4,6 @@ FactoryGirl.define do
     password { SecureRandom.hex(5) }
     profile
   end
+  factory :owner, parent: :user do
+  end
 end

@@ -11,7 +11,7 @@
       vm.signUp = signUp;
 
       function signUp() {
-        Auth.register({email: vm.email, password: vm.password})
+        Auth.register(registerAttributes())
           .then(registerSuccess, displayErrors)
 
         function registerSuccess() {
@@ -25,6 +25,15 @@
 
         function displayErrors(error) {
           vm.errors = error.data.errors;
+        }
+
+        function registerAttributes() {
+          return {
+            email: vm.email,
+            password: vm.password,
+            first_name: vm.first_name,
+            last_name: vm.last_name
+          }
         }
       }
     }

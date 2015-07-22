@@ -3,6 +3,6 @@ FactoryGirl.define do
     make  { FFaker::Lorem.word }
     model { FFaker::Lorem.word }
     production_year { rand(1999..Time.zone.now.year) }
-    profile
+    owner
   end
 end

@@ -4,7 +4,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
   let(:owner) { create(:user) }
 
   describe 'GET #index' do
-    before { 2.times { create(:car, profile: owner.profile) } }
+    before { 2.times { create(:car, owner: owner.profile) } }
 
     subject { api_get(owner, api_cars_path) }
 
@@ -50,7 +50,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
     subject { api_put(user, api_car_path(car), params) }
 
     context 'when car already exists' do
-      let!(:car) { create(:car, profile: owner.profile) }
+      let!(:car) { create(:car, owner: owner.profile) }
 
       context 'when requested by the owner' do
         let(:user) { owner }
@@ -100,7 +100,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
   end
 
   describe 'DELETE #destroy' do
-    let!(:car) { create(:car, profile: owner.profile) }
+    let!(:car) { create(:car, owner: owner.profile) }
 
     subject { api_delete(owner, api_car_path(car)) }
 

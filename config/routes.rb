@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get :me, to: 'profiles#me'
       put :me, to: 'profiles#update'
 
-      resources :cars, except: [:edit]
+      resources :cars, except: [:new, :edit]
     end
   end
   # Example of regular route:
