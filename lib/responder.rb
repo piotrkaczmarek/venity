@@ -1,6 +1,7 @@
 class Responder < ActionController::Responder
   def to_json
     if success?
+      return not_found! if @resource.blank?
       return acknowledge if options[:acknowledge]
       render({ json: @resource }.merge(options))
     else
@@ -30,5 +31,9 @@ class Responder < ActionController::Responder
 
   def render_errors
     render json: { errors: @resource.errors }, status: :conflict
+  end
+
+  def not_found!
+    render json: { message: 'record not found' }, status: :not_found
   end
 end

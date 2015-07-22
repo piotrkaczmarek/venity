@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ProfilesController, type: :request do
   describe 'GET #me' do
-    let(:user) { create(:user) }
+    let(:user) { create(:profile).user }
 
     context 'when logged in' do
       before { api_get(user, api_me_path) }
@@ -22,7 +22,7 @@ RSpec.describe Api::V1::ProfilesController, type: :request do
   end
 
   describe 'PUT #update' do
-    let(:user) { create(:user) }
+    let(:user) { create(:profile).user  }
 
     subject { api_put(user, api_me_path, params) }
 

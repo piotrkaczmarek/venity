@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
   def ack!(message = 'OK')
     render json: { message: message }, status: :ok
   end
+
+  def unauthorized!
+    render json: { message: 'Unauthorized' }, status: :unauthorized
+  end
 end

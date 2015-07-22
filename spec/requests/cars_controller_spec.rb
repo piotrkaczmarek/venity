@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::CarsController, type: :request do
-  let(:owner) { create(:user) }
+  let(:owner) { create(:profile) }
 
   describe 'GET #index' do
-    before { 2.times { create(:car, owner: owner.profile) } }
+    before { 2.times { create(:car, owner: owner) } }
 
-    subject { api_get(owner, api_cars_path) }
+    subject { api_get(owner.user, api_cars_path) }
 
     it 'returns all cars' do
       subject
@@ -15,7 +15,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
   end
 
   describe 'POST #create' do
-    subject { api_post(owner, api_cars_path, params) }
+    subject { api_post(owner.user, api_cars_path, params) }
 
     context 'when params are valid' do
       let(:params) { attributes_for(:car) }
@@ -50,10 +50,10 @@ RSpec.describe Api::V1::CarsController, type: :request do
     subject { api_put(user, api_car_path(car), params) }
 
     context 'when car already exists' do
-      let!(:car) { create(:car, owner: owner.profile) }
+      let!(:car) { create(:car, owner: owner) }
 
       context 'when requested by the owner' do
-        let(:user) { owner }
+        let(:user) { owner.user }
 
         it 'updates the car' do
           expect { subject }.to change { car.reload.make }
@@ -71,7 +71,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
       end
 
       context 'when requested by not an owner' do
-        let(:user) { create(:user) }
+        let(:user) { create(:profile).user }
 
         it 'does not update the car' do
           expect { subject }.not_to change { car.reload.make }
@@ -85,7 +85,7 @@ RSpec.describe Api::V1::CarsController, type: :request do
     end
 
     context 'when car does not exists' do
-      let(:user) { owner }
+      let(:user) { owner.user }
       let(:car) { 7 }
 
       it 'returns 404' do
@@ -100,9 +100,9 @@ RSpec.describe Api::V1::CarsController, type: :request do
   end
 
   describe 'DELETE #destroy' do
-    let!(:car) { create(:car, owner: owner.profile) }
+    let!(:car) { create(:car, owner: owner) }
 
-    subject { api_delete(owner, api_car_path(car)) }
+    subject { api_delete(owner.user, api_car_path(car)) }
 
     it 'deletes the car' do
       expect { subject }.to change(Car, :count).by(-1)
