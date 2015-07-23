@@ -5,9 +5,9 @@
     .module('venity')
     .factory('CarSrv', CarSrv);
 
-  CarSrv.$inject = ['Auth', '$http', '$q'];
+  CarSrv.$inject = ['Auth', '$http'];
 
-  function CarSrv(Auth, $http, $q) {
+  function CarSrv(Auth, $http) {
     var factory = {
       index: index,
       show: show,

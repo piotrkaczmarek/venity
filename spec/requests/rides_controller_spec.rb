@@ -43,6 +43,37 @@ RSpec.describe Api::V1::CarsController, type: :request do
     end
   end
 
-  xdescribe 'POST #create' do
+  describe 'POST #create' do
+    let(:params) { attributes_for(:ride, car: nil, driver: nil) }
+
+    subject { api_post(user, api_car_rides_path(car), params) }
+
+    context 'when posted by owner' do
+      let(:user) { owner.user }
+
+      it 'does not create a new ride' do
+        expect { subject }.not_to change(Ride, :count)
+      end
+
+      it 'returns errors' do
+        subject
+        expect(response.status).to eq(409)
+        expect(json_response['errors']).to include('driver_id')
+      end
+    end
+
+    context 'when posted by not owner' do
+      let(:user) { driver.user }
+
+      it 'creates a new ride' do
+        expect { subject }.to change(Ride, :count).by(1)
+      end
+
+      it 'returns created ride' do
+        subject
+        expect(response.status).to eq(200)
+        expect(json_response).to include('ride')
+      end
+    end
   end
 end

@@ -17,14 +17,17 @@ class Ride < ActiveRecord::Base
   private
 
   def owner_cannot_be_driver
+    return unless driver_id && car
     errors.add(:driver_id, 'Owner cannot be driver') if driver_id == car.owner_id
   end
 
   def end_cannot_be_before_start
+    return unless start_datetime && end_datetime
     errors.add(:end_datetime, 'End date must be later than start') if start_datetime > end_datetime
   end
 
   def start_cannot_be_past
+    return unless start_datetime
     errors.add(:start_datetime, 'Start date cannot be past') if start_datetime < 1.hour.ago
   end
 end

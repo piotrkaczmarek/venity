@@ -10,3 +10,42 @@
     Production Year: {{vm.car.production_year}}
   .owner
     Owner: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}
+
+.rides
+  %form.add-ride
+    .error{'ng-if' => 'vm.errors'}
+      {{vm.errors}}
+    .start
+      %h3 Start
+      %label Date:
+      %input{type: 'date', 'ng-model' => 'vm.newRide.start_datetime'}
+      %label Lng:
+      %input{type: 'number', 'ng-model' => 'vm.newRide.start_lng'}
+      %label Lat:
+      %input{type: 'number', 'ng-model' => 'vm.newRide.start_lat'}
+    .end
+      %h3 End
+      %label Date:
+      %input{type: 'date', 'ng-model' => 'vm.newRide.end_datetime'}
+      %label Lng:
+      %input{type: 'number', 'ng-model' => 'vm.newRide.end_lng'}
+      %label Lat:
+      %input{type: 'number', 'ng-model' => 'vm.newRide.end_lat'}
+    %button{'ng-click' => 'vm.addRide()'} Add Ride
+
+  %h2 Rides
+  .rides{'ng-repeat' => 'ride in vm.rides'}
+    .ride
+      %h4 Ride {{ ride.id }}
+      .start
+        Start:
+        .time
+          {{ ride.start_datetime | date: 'short'}}
+        .location
+          Lng: {{ride.start_lng }}, Lat: {{ride.start_lat}}
+      .end
+        End:
+        .time
+          {{ ride.end_datetime | date: 'short' }}
+        .location
+          Lng: {{ride.end_lng }}, Lat: {{ride.end_lat}}
