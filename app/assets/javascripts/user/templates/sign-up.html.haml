@@ -1,16 +1,24 @@
-%form
-  .error{'ng-if' => 'vm.errors'}
-    {{vm.errors}}
-  .first-name
-    First Name:
-    %input{'ng-model' => 'vm.first_name'}
-  .last-name
-    Last Name:
-    %input{'ng-model' => 'vm.last_name'}
-  .email
-    Email:
-    %input{type: 'text', placeholder: 'Email', autofocus: true, 'ng-model' => 'vm.email'}
-  .password
-    Password:
-    %input{type: 'password', placeholder: 'Password', autofocus: true, 'ng-model' => 'vm.password'}
-  %button{'ng-click' => 'vm.signUp()'}Sign Up
+%h4 Sign Up
+.row
+  %form.sign-up
+    .col-md-2.social-buttons
+      %button.btn.btn-default Google
+      %button.btn.btn-default Facebook
+    .col-md-2
+      .errors{'ng-if' => 'vm.errors'}
+        {{vm.errors}}
+      .form-group.first-name
+        %label{'for' => 'first-name-input'} First Name
+        %input#first-name-input.form-control{'ng-model' => 'vm.first_name'}
+      .form-group.last-name
+        %label{'for' => 'last-name-input'} Last Name
+        %input#last-name-input.form-control{'ng-model' => 'vm.last_name'}
+      .form-group.email
+        %label{'for' => 'email-input'}Email
+        %input#email-input.form-control{type: 'text', 'ng-model' => 'vm.email'}
+      .form-group.password
+        %label{'for' => 'password-input'}Password
+        %input#password-input.form-control{type: 'password', 'ng-model' => 'vm.password'}
+      %button.btn.btn-default{'ng-click' => 'vm.signUp()', 'autofocus' => true}Sign Up
+.row
+  %a{'ui-sref' => 'main.signIn'} Sign In

@@ -1,13 +1,14 @@
-%h4 Your Profile
-%form
+%h4 Edit Profile
+%form.edit-profile.col-md-3
   .errors{'ng-if' => 'vm.errors'}
-    Errors: {{vm.errors}}
-  %ul
-    %li Email: {{mainCtrl.currentUser.email}}
-    %li
-      First Name:
-      %input{'ng-model' => 'vm.profile.first_name'}
-    %li
-      Last Name:
-      %input{'ng-model' => 'vm.profile.last_name'}
-  %button{'ng-click' => 'vm.update()'} Update
+    {{vm.errors}}
+  .form-group.email
+    %label{'for' => 'email-input'}Email
+    %input#email-input.form-control{'readonly' => true, 'ng-model' => 'mainCtrl.currentUser.email'}
+  .form-group.first-name
+    %label{'for' => 'first-name-input'}First Name
+    %input#first-name-input.form-control{'ng-model' => 'vm.profile.first_name'}
+  .form-group.last-name
+    %label{'for' => 'last-name-input'}Last Name
+    %input#last-name-input.form-control{'ng-model' => 'vm.profile.last_name'}
+  %button.btn.btn-default{'ng-click' => 'vm.update()'} Update

@@ -1,13 +1,17 @@
-%form
-  .error{'ng-if' => 'vm.errors'}
-    {{vm.errors}}
-  .make
-    %label Make:
-    %input{type: 'text', autofocus: true, 'ng-model' => 'vm.car.make'}
-  .model
-    %label Model:
-    %input{type: 'text', autofocus: true, 'ng-model' => 'vm.car.model'}
-  .production-year
-    %label Production Year:
-    %input{type: 'number', autofocus: true, 'ng-model' => 'vm.car.production_year'}
-  %button{'ng-click' => 'vm.update()'}Update
+%h4 Edit Car
+.col-md-4
+  %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+.col-md-2
+  %form.edit-car
+    .errors{'ng-if' => 'vm.errors'}
+      {{vm.errors}}
+    .form-group.make
+      %label{'for' => 'make-input'}Make
+      %input#make-input.form-control{type: 'text', 'ng-model' => 'vm.car.make'}
+    .form-group.model
+      %label{'for' => 'make-input'}Model
+      %input#model.form-control{type: 'text', 'ng-model' => 'vm.car.model'}
+    .form-group.year
+      %label{'for' => 'year-input'}Year
+      %input#year.form-control{type: 'number', 'ng-model' => 'vm.car.production_year'}
+    %button.btn.btn-default{'ng-click' => 'vm.update()'}Update

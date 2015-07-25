@@ -4,6 +4,7 @@
   angular
     .module('venity', [
       'ui.router',
+      'ui.bootstrap',
       'templates',
       'Devise'
     ])
