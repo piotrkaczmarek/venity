@@ -1,12 +1,12 @@
 %h4 Car List
-%ul
-  %li{'ng-repeat' => 'car in vm.cars'}
-    .car{'ui-sref' => 'main.carDetails({carId: car.id})'}
-      .make
-        Make: {{car.make}}
-      .model
-        Model: {{car.model}}
+.panel.row{'ng-repeat' => 'car in vm.cars'}
+  .car{'ui-sref' => 'main.carDetails({carId: car.id})'}
+    .image.col-md-4
+      %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+    .details.col-md-2
+      .make-model
+        {{car.make}} - {{car.model}}
       .production-year
-        Production Year: {{car.production_year}}
+        {{car.production_year}}
       .owner
         Owner: {{car.owner.first_name + ' ' + car.owner.last_name}}

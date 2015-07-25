@@ -36,7 +36,7 @@
   %h2 Rides
   .rides{'ng-repeat' => 'ride in vm.rides'}
     .ride
-      %h4 Ride {{ ride.id }}
+      %h4 {{ ride.id }} Driver: {{ride.driver.first_name}}
       .start
         Start:
         .time

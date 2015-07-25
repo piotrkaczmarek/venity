@@ -1,13 +1,20 @@
-.navbar
-  %h1.logo{'ui-sref' => 'main.home'}
-    VENITY
-  .buttons
-    %a{'ui-sref' => 'main.carList'} Car List
-    %div{'ng-if' => 'mainCtrl.isAuthenticated'}
-      %a{'ui-sref' => 'main.carNew'} Add a car
-      %a{'ui-sref' => 'main.profile'} Profile
-      %a{'ng-click' => 'mainCtrl.signOut()' } Sign Out
-    %div{'ng-if' => '!mainCtrl.isAuthenticated'}
-      %a{'ui-sref' => 'main.signIn'} Sign In
-      %a{'ui-sref' => 'main.signUp'} Sign Up
-.content{'ui-view' => true}
+%nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      %h3.logo{'ui-sref' => 'main.home'}
+        VENITY
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{'ui-sref' => 'main.carList'} Car List
+        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+          %a{'ui-sref' => 'main.carNew'} Add a car
+        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+          %a{'ui-sref' => 'main.profile'} Profile
+        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+          %a{'ng-click' => 'mainCtrl.signOut()' } Sign Out
+        %li{'ng-if' => '!mainCtrl.isAuthenticated'}
+          %a{'ui-sref' => 'main.signIn'} Sign In
+        %li{'ng-if' => '!mainCtrl.isAuthenticated'}
+          %a{'ui-sref' => 'main.signUp'} Sign Up
+.content.container{'ui-view' => true}

@@ -1,6 +1,18 @@
-%form
-  .error{'ng-if' => 'vm.errors'}
-    {{vm.errors}}
-  %input{type: 'text', placeholder: 'Email', autofocus: true, 'ng-model' => 'vm.email'}
-  %input{type: 'password', placeholder: 'Password', autofocus: true, 'ng-model' => 'vm.password'}
-  %button{'ng-click' => 'vm.signIn()'}Sign In
+%h4 Sign In
+.row
+  %form.sign-in
+    .col-md-2.social-buttons
+      %button.btn.btn-default Google
+      %button.btn.btn-default Facebook
+    .col-md-2
+      .errors{'ng-if' => 'vm.errors'}
+        {{vm.errors}}
+      .form-group.email
+        %label{'for' => 'email-input'}Email
+        %input#email-input.form-control{type: 'text', 'ng-model' => 'vm.email'}
+      .form-group.password
+        %label{'for' => 'password-input'}Password
+        %input#password-input.form-control{type: 'password', 'ng-model' => 'vm.password'}
+      %button.btn.btn-default{'ng-click' => 'vm.signIn()'}Sign In
+.row
+  %a{'ui-sref' => 'main.signUp'} Sign Up
