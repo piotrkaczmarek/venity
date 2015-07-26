@@ -15,3 +15,4 @@
       %label{'for' => 'year-input'}Year
       %input#year.form-control{type: 'number', 'ng-model' => 'vm.car.production_year'}
     %button.btn.btn-default{'ng-click' => 'vm.update()'}Update
+    %button.btn.btn-default{'ui-sref' => 'main.carDetails({carId: vm.car.id})'}Cancel

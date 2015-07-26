@@ -4,13 +4,13 @@
     .module('venity')
     .controller('CarDetailsCtrl', CarDetailsCtrl);
 
-    CarDetailsCtrl.$inject = ['CarSrv', 'RideSrv', 'Auth', '$stateParams', '$state'];
+    CarDetailsCtrl.$inject = ['CarSrv', '$stateParams', '$state', '$modal'];
 
-    function CarDetailsCtrl(CarSrv, RideSrv, Auth, $stateParams, $state) {
+    function CarDetailsCtrl(CarSrv, $stateParams, $state, $modal) {
       var vm = this;
       vm.newRide = {};
       vm.rides = [];
-      vm.addRide = addRide;
+      vm.openRentModal = openRentModal;
 
       CarSrv.show($stateParams.carId)
         .success(function(data) {
@@ -21,20 +21,22 @@
           $state.go('main.carList');
         })
 
-      RideSrv.index($stateParams.carId)
-        .success(function(data) {
-          vm.rides = data.rides;
-        })
+      function openRentModal() {
+        $modal.open(modalOptions());
 
-      function addRide() {
-        RideSrv.create(vm.car.id, vm.newRide)
-          .success(function(data) {
-            vm.newRide = {};
-            vm.rides.push(data.ride);
-          })
-          .error(function(error) {
-            vm.errors = error;
-          })
+        function modalOptions() {
+          return {
+            templateUrl: 'car/templates/rent-modal.html',
+            controller: 'RentModalCtrl as vm',
+            size: 'lg',
+            resolve: {
+              car: function() {
+                return vm.car;
+              }
+            }
+          }
+        }
       }
+
     }
 })();

@@ -1,51 +1,16 @@
-%h4 Car page
-%a{'ng-if' => 'vm.owned', 'ui-sref' => 'main.carEdit({carId: vm.car.id})'}
-  Edit
-.car
-  .make
-    Make: {{vm.car.make}}
-  .model
-    Model: {{vm.car.model}}
-  .production-year
-    Production Year: {{vm.car.production_year}}
-  .owner
-    Owner: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}
-
-.rides
-  %form.add-ride
-    .error{'ng-if' => 'vm.errors'}
-      {{vm.errors}}
-    .start
-      %h3 Start
-      %label Date:
-      %input{type: 'date', 'ng-model' => 'vm.newRide.start_datetime'}
-      %label Lng:
-      %input{type: 'number', 'ng-model' => 'vm.newRide.start_lng'}
-      %label Lat:
-      %input{type: 'number', 'ng-model' => 'vm.newRide.start_lat'}
-    .end
-      %h3 End
-      %label Date:
-      %input{type: 'date', 'ng-model' => 'vm.newRide.end_datetime'}
-      %label Lng:
-      %input{type: 'number', 'ng-model' => 'vm.newRide.end_lng'}
-      %label Lat:
-      %input{type: 'number', 'ng-model' => 'vm.newRide.end_lat'}
-    %button{'ng-click' => 'vm.addRide()'} Add Ride
-
-  %h2 Rides
-  .rides{'ng-repeat' => 'ride in vm.rides'}
-    .ride
-      %h4 {{ ride.id }} Driver: {{ride.driver.first_name}}
-      .start
-        Start:
-        .time
-          {{ ride.start_datetime | date: 'short'}}
-        .location
-          Lng: {{ride.start_lng }}, Lat: {{ride.start_lat}}
-      .end
-        End:
-        .time
-          {{ ride.end_datetime | date: 'short' }}
-        .location
-          Lng: {{ride.end_lng }}, Lat: {{ride.end_lat}}
+%h4 Car Details
+.row
+  .image.col-md-4
+    %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+  .details.col-md-2
+    .make-model
+      {{vm.car.make + ' ' + vm.car.model}}
+    .production-year
+      {{vm.car.production_year}}
+    .owner
+      Owner: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}
+.row
+  %button.btn.btn-default{'ng-if' => 'vm.owned', 'ui-sref' => 'main.carEdit({carId: vm.car.id})'}
+    Edit
+  %button.btn.btn-default{'ng-if' => '!vm.owned', 'ng-click' => 'vm.openRentModal()'}
+    Rent

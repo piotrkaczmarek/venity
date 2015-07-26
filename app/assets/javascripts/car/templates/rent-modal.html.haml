@@ -1,0 +1,26 @@
+.modal-header
+  Rent {{vm.car.make}} {{vm.car.model}} - {{vm.car.production_year}}
+.modal-body
+  .rent-modal
+    %form.add-ride
+      .error{'ng-if' => 'vm.errors'}
+        {{vm.errors}}
+      .start
+        .form-group.start
+          %h3 Pick Up
+          %label{'for' => 'start-datetime-input'} Date:
+          %input#start-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.start_datetime'}
+          %label{'for' => 'start-lng-input'} Lng:
+          %input#start-lng-input{type: 'number', 'ng-model' => 'vm.newRide.start_lng'}
+          %label{'for' => 'start-lat-input'} Lat:
+          %input#start-lat-input{type: 'number', 'ng-model' => 'vm.newRide.start_lat'}
+      .end
+        .form-group.end
+          %h3 Return
+          %label{'for' => 'end-datetime-input'} Date:
+          %input#end-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.end_datetime'}
+          %label{'for' => 'end-lng-input'} Lng:
+          %input#end-lng-input{type: 'number', 'ng-model' => 'vm.newRide.end_lng'}
+          %label{'for' => 'end-lat-input'} Lat:
+          %input#end-lat-input{type: 'number', 'ng-model' => 'vm.newRide.end_lat'}
+      %button.btn.btn-default{'ng-click' => 'vm.addRide()'} Rent
