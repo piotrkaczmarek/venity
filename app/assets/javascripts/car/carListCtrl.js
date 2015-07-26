@@ -12,6 +12,6 @@
       CarSrv.index()
         .success(function(data) {
           vm.cars = data.cars;
-        })
+        });
     }
 })();

@@ -16,14 +16,21 @@
 # Uncomment the following lines to make the configuration take effect.
 
 PreCommit:
+  JsHint:
+    enabled: true
+  Brakeman:
+    enabled: true
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
-
   TrailingWhitespace:
     enabled: true
     exclude:
+      - 'vendor/assets/bower_components/**/**/*'
       - '**/db/structure.sql' # Ignore trailing whitespace in generated files
+  ALL:
+    exclude:
+     - 'vendor/assets/bower_components/**/**/*'
 #
 #PostCheckout:
 #  ALL: # Special hook name that customizes all hooks of this type

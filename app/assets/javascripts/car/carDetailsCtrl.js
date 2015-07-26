@@ -19,7 +19,7 @@
         })
         .error(function(error) {
           $state.go('main.carList');
-        })
+        });
 
       function openRentModal() {
         $modal.open(modalOptions());
@@ -34,7 +34,7 @@
                 return vm.car;
               }
             }
-          }
+          };
         }
       }
 

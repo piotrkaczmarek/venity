@@ -12,11 +12,11 @@
 
       function signUp() {
         Auth.register(registerAttributes())
-          .then(registerSuccess, displayErrors)
+          .then(registerSuccess, displayErrors);
 
         function registerSuccess() {
           Auth.login({email: vm.email, password: vm.password})
-            .then(redirectToHome, displayErrors)
+            .then(redirectToHome, displayErrors);
         }
 
         function redirectToHome() {
@@ -33,7 +33,7 @@
             password: vm.password,
             first_name: vm.first_name,
             last_name: vm.last_name
-          }
+          };
         }
       }
     }

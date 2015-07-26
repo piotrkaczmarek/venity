@@ -14,7 +14,7 @@
 
       $urlRouterProvider.otherwise('/');
 
-      $httpProvider.defaults.headers.common.Accept = 'application/vnd.venity+json; version=1'
+      $httpProvider.defaults.headers.common.Accept = 'application/vnd.venity+json; version=1';
 
       $stateProvider
         .state('main', {
@@ -28,7 +28,7 @@
                   return user;
                 }, function(error) {
                   return;
-                })
+                });
             }]
           }
         })
@@ -74,7 +74,7 @@
           url: '/sign-in',
           controller: 'SignInCtrl as vm',
           templateUrl: 'user/templates/sign-in.html'
-        })
+        });
 
         // http://stackoverflow.com/questions/22537311/angular-ui-router-login-authentication
         function authenticate() {
@@ -83,10 +83,10 @@
               return user;
             }, function(error) {
               $timeout(function() {
-                $state.go('main.signIn')
+                $state.go('main.signIn');
               });
               return error;
-            })
+            });
           }];
         }
 

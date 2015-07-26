@@ -16,7 +16,7 @@
         })
         .error(function(error) {
           $state.go('main.carList');
-        })
+        });
 
       function update() {
         CarSrv.update(vm.car)
