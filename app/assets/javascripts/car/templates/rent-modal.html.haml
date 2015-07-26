@@ -28,5 +28,6 @@
               .picked-location{'ng-if' => 'vm.newRide.end_description'}
                 {{vm.newRide.end_description}}
               %location-lookup{'ng-model' => 'vm.endLocation', callback: '$parent.vm.endLocationLookupCallback', 'limit-to' => 5}
+              = image_tag('powered-by-google-on-white.png')
     .row
       %button.btn.btn-default{'ng-click' => 'vm.addRide()'} Rent
