@@ -11,10 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require underscore
 //= require jquery_ujs
 //= require angular/angular
 //= require angular-bootstrap
 //= require ui-router
 //= require angular-devise/lib/devise
 //= require angular-rails-templates
+//= require locator
+//= require locator/dist/locator-tpl
 //= require_tree .

@@ -5,6 +5,7 @@
     .module('venity', [
       'ui.router',
       'ui.bootstrap',
+      'locator',
       'templates',
       'Devise'
     ])

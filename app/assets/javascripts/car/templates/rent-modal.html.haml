@@ -1,26 +1,32 @@
 .modal-header
   Rent {{vm.car.make}} {{vm.car.model}} - {{vm.car.production_year}}
 .modal-body
-  .rent-modal
-    %form.add-ride
-      .error{'ng-if' => 'vm.errors'}
-        {{vm.errors}}
-      .start
-        .form-group.start
-          %h3 Pick Up
-          %label{'for' => 'start-datetime-input'} Date:
-          %input#start-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.start_datetime'}
-          %label{'for' => 'start-lng-input'} Lng:
-          %input#start-lng-input{type: 'number', 'ng-model' => 'vm.newRide.start_lng'}
-          %label{'for' => 'start-lat-input'} Lat:
-          %input#start-lat-input{type: 'number', 'ng-model' => 'vm.newRide.start_lat'}
-      .end
-        .form-group.end
-          %h3 Return
-          %label{'for' => 'end-datetime-input'} Date:
-          %input#end-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.end_datetime'}
-          %label{'for' => 'end-lng-input'} Lng:
-          %input#end-lng-input{type: 'number', 'ng-model' => 'vm.newRide.end_lng'}
-          %label{'for' => 'end-lat-input'} Lat:
-          %input#end-lat-input{type: 'number', 'ng-model' => 'vm.newRide.end_lat'}
+  .container
+    .row.rent-modal
+      %form.add-ride
+        .error{'ng-if' => 'vm.errors'}
+          {{vm.errors}}
+        .col-md-6
+          .form-group.start
+            %h3 Pick Up
+            .row
+              %label{'for' => 'start-datetime-input'}When:
+              %input#start-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.start_datetime'}
+            .row
+              %label Where:
+              .picked-location{'ng-if' => 'vm.newRide.start_description'}
+                {{vm.newRide.start_description}}
+              %location-lookup{'ng-model' => 'vm.startLocation', callback: '$parent.vm.startLocationLookupCallback', 'limit-to' => 5}
+        .col-md-6
+          .form-group.end
+            %h3 Return
+            .row
+              %label{'for' => 'end-datetime-input'}When:
+              %input#end-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.end_datetime'}
+            .row
+              %label Where:
+              .picked-location{'ng-if' => 'vm.newRide.end_description'}
+                {{vm.newRide.end_description}}
+              %location-lookup{'ng-model' => 'vm.endLocation', callback: '$parent.vm.endLocationLookupCallback', 'limit-to' => 5}
+    .row
       %button.btn.btn-default{'ng-click' => 'vm.addRide()'} Rent
