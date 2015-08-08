@@ -8,8 +8,5 @@
     "locator": "git://github.com/winkerVSbecks/locator",
     "angular-devise": "latest",
     "underscore": "latest"
-  },
-  "resolutions": {
-    "angular": "^1.2.0"
   }
 }
