@@ -92,5 +92,30 @@
           200zł
           %span.price-content-add /dzień
 
+  %section.search-car-section
+    %select
+      %option{'value' => 'Audi'} Audi
+      %option{'value' => 'BMW'} BMW
+      %option{'value' => 'Honda'} Honda
+      %option{'value' => 'Opel'} Opel
+    %select
+      %option{'value' => 'Warszawa'} Warszawa
+    %button.find-car-btn Znajdź samochód
 
-%section
+
+%section.additional-information-section
+  %div.long-term-info-section
+    %h3.headline
+      Wypożyczenia
+      %br
+      %span.headline-important długoterminowe
+  %div.airport-info-section
+    %h3.headline
+      HiRide
+      %span.headline-important
+        dostępne
+        %br na lotnisku
+
+%section.additional-action-section
+  %button.list-car-btn Udostępnij swój samochód
+  %button.find-car-btn Znajdź samochód
