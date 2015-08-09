@@ -12,7 +12,11 @@ Rails.application.routes.draw do
       put :me, to: 'profiles#update'
 
       resources :cars, except: [:new, :edit] do
-        resources :rides, except: [:new, :edit, :destroy, :update]
+        resources :rides, only: [:create]
+      end
+      resources :rides, only: [] do
+        get :driven, on: :collection
+        get :owned,  on: :collection
       end
     end
   end

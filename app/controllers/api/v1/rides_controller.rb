@@ -1,20 +1,14 @@
 module Api
   module V1
     class RidesController < ApplicationController
-      def index
-        car = Car.find(params[:car_id])
-        if car.owned_by?(current_user.profile_id)
-          rides = car.rides
-        else
-          rides = car.rides.where(driver_id: current_user.profile_id)
-        end
+      def driven
+        rides = Ride.where(driver_id: current_user.profile_id)
         respond_with(rides, each_serializer: RideSerializer)
       end
 
-      def show
-        car = Car.find(params[:car_id])
-        ride = car.rides.find(params[:id])
-        respond_with(ride, serializer: RideSerializer)
+      def owned
+        rides = Ride.joins(:car).where(cars: { owner_id: current_user.profile_id })
+        respond_with(rides, each_serializer: RideSerializer)
       end
 
       def create

@@ -8,6 +8,8 @@
         %li
           %a{'ui-sref' => 'main.carList'} Car List
         %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+          %a{'ui-sref' => 'main.dashboard'} Dashboard
+        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.carNew'} Add a car
         %li{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.profile'} Profile

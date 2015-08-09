@@ -9,29 +9,34 @@
 
   function RideSrv(Auth, $http) {
     var factory = {
-      index: index,
+      owned: owned,
+      driven: driven,
       show: show,
       create: create
     };
     return factory;
 
-    function index(carId) {
-      if(!carId) {
-        throw('No carId given');
-      }
-      return $http.get('api/cars/' + carId + '/rides');
+    function owned() {
+      return $http.get('api/rides/owned');
+    }
+
+    function driven() {
+      return $http.get('api/rides/driven');
     }
 
     function show(carId, rideId) {
-      if(!carId || !rideId) {
-        throw('No carId and/or rideId given');
+      if(!rideId) {
+        throw('No rideId given');
       }
-      return $http.get('api/cars/' + carId + '/rides/' + rideId);
+      return $http.get('api/rides/' + rideId);
     }
 
     function create(carId, ride) {
       if(!carId) {
         throw('No carId given');
+      }
+      if(!ride) {
+        throw('No ride given');
       }
       return $http.post('api/cars/' + carId + '/rides', ride);
     }

@@ -4,41 +4,71 @@ RSpec.describe Api::V1::CarsController, type: :request do
   let(:owner) { create(:profile) }
   let(:car) { create(:car, owner: owner) }
   let(:driver) { create(:profile) }
+  let(:returned_ids) { json_response['rides'].map { |r| r['id'] } }
 
-  describe 'GET #index' do
-    let!(:ride_1) { create(:ride, car: car) }
-    let!(:ride_2) { create(:ride, car: car, driver: driver) }
-    let!(:ride_3) { create(:ride) }
-    let!(:ride_4) { create(:ride, driver: driver) }
+  describe 'GET #driven' do
+    let!(:ride_of_other_user) { create(:ride, car: car) }
+    let!(:drivers_car) { create(:car, owner: driver) }
+    let!(:ride_with_drivers_car) { create(:ride, car: drivers_car) }
 
-    subject { api_get(user, api_car_rides_path(car)) }
+    subject { api_get(driver.user, driven_api_rides_path) }
 
-    context 'when requested by driver' do
-      let(:user) { driver.user }
+    context 'when driver has three rides with two different cars' do
+      let!(:ride_1) { create(:ride, driver: driver, car: car) }
+      let!(:ride_2) { create(:ride, driver: driver, car: car) }
+      let!(:ride_3) { create(:ride, driver: driver) }
 
-      it 'returns driver rides for given car' do
+      it 'returns his rides where he is a driver' do
         subject
-        expect(json_response['rides'].map { |r| r['id'] }).to include(ride_2.id)
-        expect(json_response['rides'].count).to eq(1)
+        expect(returned_ids).to include(*[ride_1, ride_2, ride_3].map(&:id))
+        expect(json_response['rides'].count).to eq(3)
+      end
+
+      it 'does not return rides of his car' do
+        subject
+        expect(returned_ids).not_to include(ride_with_drivers_car.id)
+      end
+
+      it 'does not return rides of other users' do
+        subject
+        expect(returned_ids).not_to include(ride_of_other_user.id)
       end
     end
 
-    context 'when requested by owner' do
-      let(:user) { owner.user }
-
-      it 'returns all car rides' do
-        subject
-        expect(json_response['rides'].map { |r| r['id'] }).to include(ride_1.id, ride_2.id)
-        expect(json_response['rides'].count).to eq(2)
-      end
-    end
-
-    context 'when requested by not involved user' do
-      let(:user) { create(:profile).user }
-
+    context 'when driver has no rides' do
       it 'returns 404' do
         subject
         expect(response.status).to eq(404)
+      end
+    end
+  end
+
+  describe 'GET #owned' do
+    let!(:ride_of_owner) { create(:ride, driver: owner) }
+    let!(:ride_with_other_car) { create(:ride) }
+    let!(:car_2) { create(:car, owner: owner) }
+
+    subject { api_get(owner.user, owned_api_rides_path) }
+
+    context 'when owner has four rides with two different cars' do
+      let!(:ride_1) { create(:ride, car: car, driver: driver) }
+      let!(:ride_2) { create(:ride, car: car, driver: driver) }
+      let!(:ride_3) { create(:ride, car: car) }
+      let!(:ride_4) { create(:ride, car: car_2) }
+
+      it 'returns owner\'s car rides' do
+        subject
+        expect(returned_ids).to include(*[ride_1, ride_2, ride_3, ride_4].map(&:id))
+      end
+
+      it 'does not return rides of other owners' do
+        subject
+        expect(returned_ids).not_to include(ride_with_other_car)
+      end
+
+      it 'does not return rides where owner is a driver' do
+        subject
+        expect(returned_ids).not_to include(ride_of_owner)
       end
     end
   end

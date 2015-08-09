@@ -37,6 +37,11 @@
           controller: 'HomeCtrl as vm',
           templateUrl: 'main/templates/home.html'
         })
+        .state('main.dashboard', {
+          url: '/dashboard',
+          controller: 'DashboardCtrl as vm',
+          templateUrl: 'main/templates/dashboard.html'
+        })
         .state('main.carList', {
           url: '/cars',
           controller: 'CarListCtrl as vm',
