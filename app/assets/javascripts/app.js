@@ -40,7 +40,10 @@
         .state('main.dashboard', {
           url: '/dashboard',
           controller: 'DashboardCtrl as vm',
-          templateUrl: 'main/templates/dashboard.html'
+          templateUrl: 'main/templates/dashboard.html',
+          resolve: {
+            authenticate: authenticate()
+          }
         })
         .state('main.carList', {
           url: '/cars',
@@ -50,7 +53,10 @@
         .state('main.carNew', {
           url: '/cars/new',
           controller: 'CarNewCtrl as vm',
-          templateUrl: 'car/templates/car-new.html'
+          templateUrl: 'car/templates/car-new.html',
+          resolve: {
+            authenticate: authenticate()
+          }
         })
         .state('main.carDetails', {
           url: '/cars/{carId:[0-9]{1,8}}',
@@ -60,7 +66,10 @@
         .state('main.carEdit', {
           url: '/cars/{carId:[0-9]{1,8}}/edit',
           controller: 'CarEditCtrl as vm',
-          templateUrl: 'car/templates/car-edit.html'
+          templateUrl: 'car/templates/car-edit.html',
+          resolve: {
+            authenticate: authenticate()
+          }
         })
         .state('main.profile', {
           url: '/profile',

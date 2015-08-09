@@ -13,4 +13,9 @@
     .driver Driver: {{ride.driver.first_name + ' ' + ride.driver.last_name}}
     .start Start: {{ride.start_datetime | date : 'medium'}}
     .end End: {{ride.end_datetime | date : 'medium'}}
+    .state{'ng-if' => 'ride.state == "unanswered"'}
+      %button.btn.btn-success{'ng-click' => 'vm.accept(ride)'} Accept
+      %button.btn.btn-danger{'ng-click' => 'vm.reject(ride)'} Reject
+    .state{'ng-if' => 'ride.state != "unanswered"'}
+      {{ride.state}}
 

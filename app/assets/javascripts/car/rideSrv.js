@@ -11,7 +11,8 @@
     var factory = {
       owned: owned,
       driven: driven,
-      show: show,
+      accept: accept,
+      reject: reject,
       create: create
     };
     return factory;
@@ -24,11 +25,18 @@
       return $http.get('api/rides/driven');
     }
 
-    function show(carId, rideId) {
+    function accept(rideId) {
       if(!rideId) {
         throw('No rideId given');
       }
-      return $http.get('api/rides/' + rideId);
+      return $http.put('api/rides/' + rideId + '/accept');
+    }
+
+    function reject(rideId) {
+      if(!rideId) {
+        throw('No rideId given');
+      }
+      return $http.put('api/rides/' + rideId + '/reject');
     }
 
     function create(carId, ride) {

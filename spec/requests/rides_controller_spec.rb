@@ -73,6 +73,96 @@ RSpec.describe Api::V1::CarsController, type: :request do
     end
   end
 
+  describe 'PUT #accept' do
+    let!(:ride) { create(:ride, car: car, driver: driver) }
+
+    subject { api_put(user, accept_api_ride_path(ride)) }
+
+    context 'as an owner' do
+      let(:user) { owner.user }
+
+      it 'returns 200' do
+        subject
+        expect(response.status).to eq(200)
+      end
+
+      it 'changes ride state to accepted' do
+        expect { subject }.to change { ride.reload.state }.to('accepted')
+      end
+
+      context 'when called twice' do
+        it 'changes ride state to accepted' do
+          expect { 2.times { subject } }.to change { ride.reload.state }.to('accepted')
+        end
+
+        it 'returns first 200 and then 404' do
+          api_put(user, accept_api_ride_path(ride))
+          expect(response.status).to eq(200)
+          api_put(user, accept_api_ride_path(ride))
+          expect(response.status).to eq(404)
+        end
+      end
+    end
+
+    context 'as a driver' do
+      let(:user) { driver.user }
+
+      it 'returns 403' do
+        subject
+        expect(response.status).to eq(403)
+      end
+
+      it 'does not change ride state' do
+        expect { subject }.not_to change { ride.reload.state }
+      end
+    end
+  end
+
+  describe 'PUT #reject' do
+    let!(:ride) { create(:ride, car: car, driver: driver) }
+
+    subject { api_put(user, reject_api_ride_path(ride)) }
+
+    context 'as an owner' do
+      let(:user) { owner.user }
+
+      it 'returns 200' do
+        subject
+        expect(response.status).to eq(200)
+      end
+
+      it 'changes ride state to rejected' do
+        expect { subject }.to change { ride.reload.state }.to('rejected')
+      end
+
+      context 'when called twice' do
+        it 'changes ride state to rejected' do
+          expect { 2.times { subject } }.to change { ride.reload.state }.to('rejected')
+        end
+
+        it 'returns first 200 and then 404' do
+          api_put(user, reject_api_ride_path(ride))
+          expect(response.status).to eq(200)
+          api_put(user, reject_api_ride_path(ride))
+          expect(response.status).to eq(404)
+        end
+      end
+    end
+
+    context 'as a driver' do
+      let(:user) { driver.user }
+
+      it 'returns 403' do
+        subject
+        expect(response.status).to eq(403)
+      end
+
+      it 'does not change ride state' do
+        expect { subject }.not_to change { ride.state }
+      end
+    end
+  end
+
   describe 'POST #create' do
     let(:params) { attributes_for(:ride, car: nil, driver: nil) }
 

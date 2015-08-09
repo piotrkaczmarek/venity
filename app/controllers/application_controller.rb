@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     render json: { message: message }, status: :ok
   end
 
+  def forbidden!
+    render json: { message: 'Forbidden' }, status: :forbidden
+  end
+
   def unauthorized!
     render json: { message: 'Unauthorized' }, status: :unauthorized
   end

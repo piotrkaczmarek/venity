@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       resources :rides, only: [] do
         get :driven, on: :collection
         get :owned,  on: :collection
+        put :accept, on: :member
+        put :reject, on: :member
       end
     end
   end
