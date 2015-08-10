@@ -12,7 +12,27 @@ class Ride < ActiveRecord::Base
   validates :end_lat,        presence: true, if: proc { end_lng.present? }
   validate :owner_cannot_be_driver
   validate :end_cannot_be_before_start
-  validate :start_cannot_be_past
+  validate :start_cannot_be_past, on: :create
+
+  scope :owned_by, ->(profile_id) { includes(:car).where(cars: { owner_id: profile_id }) }
+
+  state_machine initial: :unanswered do
+    event :accept do
+      transition unanswered: :accepted
+    end
+
+    event :reject do
+      transition unanswered: :rejected
+    end
+
+    event :start do
+      transition accepted: :started
+    end
+
+    event :end do
+      transition started: :ended
+    end
+  end
 
   private
 

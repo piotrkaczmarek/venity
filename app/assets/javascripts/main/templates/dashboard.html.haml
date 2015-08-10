@@ -1,0 +1,21 @@
+%h2 Rides
+.driven.col-md-3
+  %h3 As a driver
+  .rides{'ng-repeat' => 'ride in vm.rides.driven'}
+    %h4.car {{ride.car.make + ' ' + ride.car.model + ' ' + ride.car.production_year}}
+    .owner Owner: {{ride.car.owner.first_name + ' ' + ride.car.owner.last_name}}
+    .start Start: {{ride.start_datetime | date : 'medium'}}
+    .end End: {{ride.end_datetime | date : 'medium'}}
+.owned.col-md-3
+  %h3 As a car owner
+  .rides{'ng-repeat' => 'ride in vm.rides.owned'}
+    %h4.car {{ride.car.make + ' ' + ride.car.model + ' ' + ride.car.production_year}}
+    .driver Driver: {{ride.driver.first_name + ' ' + ride.driver.last_name}}
+    .start Start: {{ride.start_datetime | date : 'medium'}}
+    .end End: {{ride.end_datetime | date : 'medium'}}
+    .state{'ng-if' => 'ride.state == "unanswered"'}
+      %button.btn.btn-success{'ng-click' => 'vm.accept(ride)'} Accept
+      %button.btn.btn-danger{'ng-click' => 'vm.reject(ride)'} Reject
+    .state{'ng-if' => 'ride.state != "unanswered"'}
+      {{ride.state}}
+

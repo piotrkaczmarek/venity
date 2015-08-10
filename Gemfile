@@ -22,6 +22,7 @@ gem 'angular_rails_csrf'
 gem 'devise', '~> 3.4.0'
 gem 'api-versions'
 gem 'active_model_serializers'
+gem 'state_machines-activerecord'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
