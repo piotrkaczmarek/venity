@@ -18,6 +18,7 @@
 //= require ui-router
 //= require angular-devise/lib/devise
 //= require angular-rails-templates
+//= require angular-translate
 //= require locator
 //= require locator/dist/locator-tpl
 //= require_tree .

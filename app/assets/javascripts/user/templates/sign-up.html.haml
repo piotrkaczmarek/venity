@@ -1,4 +1,4 @@
-%h4 Sign Up
+%h4{translate: true}SIGN_UP_PAGE.TITLE
 .row
   %form.sign-up
     .col-md-2.social-buttons
@@ -8,17 +8,17 @@
       .errors{'ng-if' => 'vm.errors'}
         {{vm.errors}}
       .form-group.first-name
-        %label{'for' => 'first-name-input'} First Name
+        %label{'for' => 'first-name-input', translate: true}PROFILE.FIRST_NAME
         %input#first-name-input.form-control{'ng-model' => 'vm.first_name'}
       .form-group.last-name
-        %label{'for' => 'last-name-input'} Last Name
+        %label{'for' => 'last-name-input', translate: true}PROFILE.LAST_NAME
         %input#last-name-input.form-control{'ng-model' => 'vm.last_name'}
       .form-group.email
-        %label{'for' => 'email-input'}Email
+        %label{'for' => 'email-input', translate: true}PROFILE.EMAIL
         %input#email-input.form-control{type: 'text', 'ng-model' => 'vm.email'}
       .form-group.password
-        %label{'for' => 'password-input'}Password
+        %label{'for' => 'password-input', translate: true}PROFILE.PASSWORD
         %input#password-input.form-control{type: 'password', 'ng-model' => 'vm.password'}
-      %button.btn.btn-default{'ng-click' => 'vm.signUp()', 'autofocus' => true}Sign Up
+      %button.btn.btn-default{'ng-click' => 'vm.signUp()', translate: true}SIGN_UP
 .row
-  %a{'ui-sref' => 'main.signIn'} Sign In
+  %a{'ui-sref' => 'main.signIn', translate: true}SIGN_IN

@@ -6,17 +6,17 @@
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li
-          %a{'ui-sref' => 'main.carList'} Car List
+          %a{'ui-sref' => 'main.carList', translate: true}NAVBAR.CAR_LIST
         %li{'ng-if' => 'mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.dashboard'} Dashboard
+          %a{'ui-sref' => 'main.dashboard', translate: true}NAVBAR.DASHBOARD
         %li{'ng-if' => 'mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.carNew'} Add a car
+          %a{'ui-sref' => 'main.carNew', translate: true}NAVBAR.ADD_CAR
         %li{'ng-if' => 'mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.profile'} Profile
+          %a{'ui-sref' => 'main.profile', translate: true}NAVBAR.EDIT_PROFILE
         %li{'ng-if' => 'mainCtrl.isAuthenticated'}
-          %a{'ng-click' => 'mainCtrl.signOut()' } Sign Out
+          %a{'ng-click' => 'mainCtrl.signOut()', translate: true}NAVBAR.SIGN_OUT
         %li{'ng-if' => '!mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.signIn'} Sign In
+          %a{'ui-sref' => 'main.signIn', translate: true}NAVBAR.SIGN_IN
         %li{'ng-if' => '!mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.signUp'} Sign Up
+          %a{'ui-sref' => 'main.signUp', translate: true}NAVBAR.SIGN_UP
 .content.container{'ui-view' => true}

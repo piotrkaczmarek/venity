@@ -1,4 +1,4 @@
-%h4 Car List
+%h4{translate: true}CAR_LIST_PAGE.TITLE
 .panel.row{'ng-repeat' => 'car in vm.cars'}
   .car{'ui-sref' => 'main.carDetails({carId: car.id})'}
     .image.col-md-4
@@ -9,4 +9,4 @@
       .production-year
         {{car.production_year}}
       .owner
-        Owner: {{car.owner.first_name + ' ' + car.owner.last_name}}
+        {{'CAR.OWNER' | translate}}: {{car.owner.first_name + ' ' + car.owner.last_name}}

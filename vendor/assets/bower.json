@@ -7,9 +7,7 @@
     "angular-bootstrap": "latest",
     "locator": "git://github.com/winkerVSbecks/locator",
     "angular-devise": "latest",
+    "angular-translate": "latest",
     "underscore": "latest"
-  },
-  "resolutions": {
-    "angular": "^1.2.0"
   }
 }

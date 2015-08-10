@@ -1,4 +1,4 @@
-%h4 Sign In
+%h4{translate: true}SIGN_IN_PAGE.TITLE
 .row
   %form.sign-in
     .col-md-2.social-buttons
@@ -8,11 +8,11 @@
       .errors{'ng-if' => 'vm.errors'}
         {{vm.errors}}
       .form-group.email
-        %label{'for' => 'email-input'}Email
+        %label{'for' => 'email-input', translate: true}PROFILE.EMAIL
         %input#email-input.form-control{type: 'text', 'ng-model' => 'vm.email'}
       .form-group.password
-        %label{'for' => 'password-input'}Password
+        %label{'for' => 'password-input', translate: true}PROFILE.PASSWORD
         %input#password-input.form-control{type: 'password', 'ng-model' => 'vm.password'}
-      %button.btn.btn-default{'ng-click' => 'vm.signIn()'}Sign In
+      %button.btn.btn-default{'ng-click' => 'vm.signIn()', translate: true}SIGN_IN
 .row
-  %a{'ui-sref' => 'main.signUp'} Sign Up
+  %a{'ui-sref' => 'main.signUp', translate: true}SIGN_UP

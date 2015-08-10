@@ -1,14 +1,14 @@
-%h4 Edit Profile
+%h4{translate: true}EDIT_PROFILE_PAGE.TITLE
 %form.edit-profile.col-md-3
   .errors{'ng-if' => 'vm.errors'}
     {{vm.errors}}
   .form-group.email
-    %label{'for' => 'email-input'}Email
+    %label{'for' => 'email-input', translate: true}PROFILE.EMAIL
     %input#email-input.form-control{'readonly' => true, 'ng-model' => 'mainCtrl.currentUser.email'}
   .form-group.first-name
-    %label{'for' => 'first-name-input'}First Name
+    %label{'for' => 'first-name-input', translate: true}PROFILE.FIRST_NAME
     %input#first-name-input.form-control{'ng-model' => 'vm.profile.first_name'}
   .form-group.last-name
-    %label{'for' => 'last-name-input'}Last Name
+    %label{'for' => 'last-name-input', translate: true}PROFILE.LAST_NAME
     %input#last-name-input.form-control{'ng-model' => 'vm.profile.last_name'}
-  %button.btn.btn-default{'ng-click' => 'vm.update()'} Update
+  %button.btn.btn-default{'ng-click' => 'vm.update()', translate: true}UPDATE

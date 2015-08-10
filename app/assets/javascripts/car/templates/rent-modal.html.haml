@@ -1,5 +1,5 @@
 .modal-header
-  Rent {{vm.car.make}} {{vm.car.model}} - {{vm.car.production_year}}
+  {{'RENT' | translate}} {{vm.car.make}} {{vm.car.model}} - {{vm.car.production_year}}
 .modal-body
   .container
     .row.rent-modal
@@ -8,26 +8,26 @@
           {{vm.errors}}
         .col-md-6
           .form-group.start
-            %h3 Pick Up
+            %h3{translate: true}RIDE.PICK_UP
             .row
-              %label{'for' => 'start-datetime-input'}When:
+              %label{'for' => 'start-datetime-input', translate: true}WHEN
               %input#start-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.start_datetime'}
             .row
-              %label Where:
+              %label{translate: true}WHERE
               .picked-location{'ng-if' => 'vm.newRide.start_description'}
                 {{vm.newRide.start_description}}
               %location-lookup{'ng-model' => 'vm.startLocation', callback: '$parent.vm.startLocationLookupCallback', 'limit-to' => 5}
         .col-md-6
           .form-group.end
-            %h3 Return
+            %h3{translate: true}RIDE.RETURN
             .row
-              %label{'for' => 'end-datetime-input'}When:
+              %label{'for' => 'end-datetime-input', translate: true}WHEN
               %input#end-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.end_datetime'}
             .row
-              %label Where:
+              %label{translate: true}WHERE
               .picked-location{'ng-if' => 'vm.newRide.end_description'}
                 {{vm.newRide.end_description}}
               %location-lookup{'ng-model' => 'vm.endLocation', callback: '$parent.vm.endLocationLookupCallback', 'limit-to' => 5}
               = image_tag('powered-by-google-on-white.png')
     .row
-      %button.btn.btn-default{'ng-click' => 'vm.addRide()'} Rent
+      %button.btn.btn-default{'ng-click' => 'vm.addRide()', translate: true}RENT
