@@ -1,30 +1,87 @@
 // Main search section - search car
+@import "theme"
 
 body
   font-family: 'Exo', sans-serif!important
 
+.center-section
+  margin: 0 auto
+  width: 1174px
+
 .main-search-section
-  background: url(../images/headline-bg.jpg)
+  background: #7c8289 url(../images/headline-bg.jpg)
   height: 700px
   text-align: center
 
   .headline-home
+    color: $white
     font-size: 52px
     font-weight: 100
+    margin: 0
+    padding: 90px 0 75px
     text-transform: uppercase
+
+  .search-section-content
+    background: $white
+    display: inline-block
+    margin: 0 auto
+    padding: 18px 22px
+
+    input
+      color: $grey-input-color
+      font-weight: 300
+      padding: 17px 20px
+      width: 275px
+
+  .day-rent-start
+    position: relative
+    &:after
+      background: black url(../images/calendar-icon.jpg)
+      content: ''
+      height: 20px
+      right: 19px
+      top: -2px
+      position: absolute
+      width: 20px
+
+  .day-rent-end
+    position: relative
+    &:after
+      background: black url(../images/calendar-icon.jpg)
+      content: ''
+      height: 20px
+      right: 19px
+      top: -2px
+      position: absolute
+      width: 20px
+
 
   .instruction-info
 
   .instruction-link
 
   .instruction
+    color: $white
+    font-size: 14px
+    font-weight: 300
     .instruction-intro
       display: inline-block
 
     .instruction-link
+      color: $white
+      cursor: pointer
 
 .btn-search-car
+  margin: 21px 0 40px
+
   .btn-content
+    background: $blue-sea-btn
+    border: none
+    color: $white
+    font-size: 18px
+    font-weight: 300
+    padding: 22px 0
+    width: 876px
 
 
 
@@ -34,10 +91,21 @@ body
 .description-section
 
   .headline
+    color: $blue-sea-btn
+    font-size: 42px
+    font-weight: 100
+    margin: 115px 0 300px
+    text-align: center
+    text-transform: uppercase
 
   .description-content
 
-    .headline
+    .description-content-headline
+      color: $blue-sea-btn
+      font-size: 15px
+      font-weight: 100
+      text-align: center
+      text-transform: uppercase
 
     .description-intro
 

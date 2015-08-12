@@ -1,44 +1,49 @@
-%div{'ng-if' => 'mainCtrl.isAuthenticated'}
-  Hello {{mainCtrl.currentUser.email}} !
+-#%div{'ng-if' => 'mainCtrl.isAuthenticated'}
+-#  Hello {{mainCtrl.currentUser.email}} !
 
 %section.main-search-section
-  %h2.headline-home
-    Wypożycz swój
-    %br idealny samochód
-  %input
-  %input
-  %input
-  %div.btn-search-car
-    %button.btn-content Pokaż dostępne samochody
-  %div.instruction
-    %p.instruction-intro Twój samochód może zarabiać dla Ciebie
-    %a.instruction-link Zobacz jak działa HiRide
+  %div.center-section
+    %h2.headline-home
+      Wypożycz swój
+      %br idealny samochód
+    %div.search-section-content
+      %input{'value' => 'Warszawa'}
+      %span.day-rent-start
+        %input{'value' => 'Od:'}
+      %span.day-rent-end
+        %input{'value' => 'Do:'}
+    %div.btn-search-car
+      %button.btn-content Pokaż dostępne samochody
+    %div.instruction
+      %p.instruction-intro Twój samochód może zarabiać dla Ciebie
+      %a.instruction-link Zobacz jak działa HiRide
 
 
 %section.description-section
-  %h2.headline How it works?
-  %div.description-wrapper
-    %div.description-content
-      %img
-      %h3.headline Chronimy Twój samochód
-      %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit.
+  %div.center-section
+    %h2.headline How it works?
+    %div.description-wrapper
+      %div.description-content.col-md-4
+        %img
+        %h3.description-content-headline Chronimy Twój samochód
+        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit.
 
-    %div.description-content
-      %img
-      %h3.headline Ty decydujesz o dostępności i cenie wypożyczenia
-      %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit.
+      %div.description-content.col-md-4
+        %img
+        %h3.description-content-headline Ty decydujesz o dostępności i cenie wypożyczenia
+        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit.
 
-    %div.description-content
-      %img
-      %h3.headline Ty decydujesz kto może wypożyczyć Twój samochód
-      %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
-      consectetur adipiscing elit.
+      %div.description-content.col-md-4
+        %img
+        %h3.description-content-headline Ty decydujesz kto może wypożyczyć Twój samochód
+        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit.
 
-  %div.description-action
-    %button.list-car-btn Udostępnij swój samochód
-    %a.link-learn-more{'href' => '#'} Dowiedz się więcej
+    %div.description-action
+      %button.list-car-btn Udostępnij swój samochód
+      %a.link-learn-more{'href' => '#'} Dowiedz się więcej
 
 
 %section.car-list-section
