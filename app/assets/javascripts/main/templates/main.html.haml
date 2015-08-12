@@ -1,21 +1,21 @@
-%nav.navbar.navbar-default
+%nav.navbar
   .container-fluid
     .navbar-header
       %h3.logo{'ui-sref' => 'main.home'}
         VENITY
     .collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li
+      %ul.navigation-list
+        %li.car-list-nav-btn
           %a{'ui-sref' => 'main.carList'} Car List
-        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+        %li.add-car-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.carNew'} Add a car
-        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+        %li.profile-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.profile'} Profile
-        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+        %li.sign-out-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ng-click' => 'mainCtrl.signOut()' } Sign Out
-        %li{'ng-if' => '!mainCtrl.isAuthenticated'}
+        %li.sign-in-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.signIn'} Sign In
-        %li{'ng-if' => '!mainCtrl.isAuthenticated'}
+        %li.sign-up-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.signUp'} Sign Up
 .content.container{'ui-view' => true}
 
