@@ -8,6 +8,7 @@
     "locator": "git://github.com/winkerVSbecks/locator",
     "angular-devise": "latest",
     "angular-translate": "latest",
+    "ng-file-upload": "latest",
     "underscore": "latest"
   }
 }
