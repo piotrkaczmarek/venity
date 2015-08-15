@@ -1,7 +1,9 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  storage :file
+  configure do |c|
+    c.fog_public = true
+  end
 
   version :thumb do
     process resize_to_fill: [350, 200]
