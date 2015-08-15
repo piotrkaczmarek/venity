@@ -1,7 +1,8 @@
 %h4{translate: true}CAR_DETAILS_PAGE.TITLE
 .row
   .image.col-md-4
-    %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+    %img{src: '{{vm.car.photo.thumb}}', 'ng-if' => 'vm.car.photo.thumb'}
+    = image_tag('default-car-photo.jpg', 'ng-if' => '!vm.car.photo.thumb')
   .details.col-md-2
     .make-model
       {{vm.car.make + ' ' + vm.car.model}}

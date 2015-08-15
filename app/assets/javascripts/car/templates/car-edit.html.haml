@@ -1,6 +1,9 @@
 %h4{translate: true}CAR_EDIT_PAGE.TITLE
 .col-md-4
-  %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+  .photo
+    %img{src: '{{vm.car.photo.thumb}}', 'ng-if' => 'vm.car.photo.thumb'}
+    = image_tag('default-car-photo.jpg', 'ng-if' => '!vm.car.photo.thumb')
+    %button.btn.btn-default{'ngf-select' => true, 'ngf-change' => 'vm.upload($file)', translate: true}CAR_NEW_PAGE.UPLOAD
 .col-md-2
   %form.edit-car
     .errors{'ng-if' => 'vm.errors'}

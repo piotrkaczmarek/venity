@@ -28,7 +28,8 @@
           TITLE: 'Car List'
         },
         CAR_NEW_PAGE: {
-          TITLE: 'Add a Car'
+          TITLE: 'Add a Car',
+          UPLOAD: 'Upload a photo'
         },
         EDIT_PROFILE_PAGE: {
           TITLE: 'Edit Profile'
@@ -98,7 +99,8 @@
           TITLE: 'Samochody'
         },
         CAR_NEW_PAGE: {
-          TITLE: 'Dodawanie samochódu'
+          TITLE: 'Dodawanie samochódu',
+          UPLOAD: 'Dodaj fotkę'
         },
         EDIT_PROFILE_PAGE: {
           TITLE: 'Edycja profilu'
