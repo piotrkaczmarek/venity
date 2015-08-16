@@ -8,6 +8,7 @@
       'locator',
       'templates',
       'pascalprecht.translate',
+      'ngFileUpload',
       'Devise'
     ])
     .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', '$translateProvider', 'translations', function(
@@ -20,6 +21,7 @@
         .translations('en', translations.en)
         .translations('pl', translations.pl)
         .preferredLanguage('pl');
+      $translateProvider.useSanitizeValueStrategy('escape');
 
       $httpProvider.defaults.headers.common.Accept = 'application/vnd.venity+json; version=1';
 

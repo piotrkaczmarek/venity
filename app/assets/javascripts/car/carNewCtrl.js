@@ -4,9 +4,9 @@
     .module('venity')
     .controller('CarNewCtrl', CarNewCtrl);
 
-    CarNewCtrl.$inject = ['CarSrv', '$state'];
+    CarNewCtrl.$inject = ['CarSrv', '$state', 'Upload'];
 
-    function CarNewCtrl(CarSrv, $state) {
+    function CarNewCtrl(CarSrv, $state, Upload) {
       var vm = this;
       vm.car = {
         production_year: 2015

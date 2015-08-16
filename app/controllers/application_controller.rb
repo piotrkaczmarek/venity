@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def current_profile
+    current_user.profile
+  end
+
   def not_found!
     render json: { message: 'record not found' }, status: :not_found
   end

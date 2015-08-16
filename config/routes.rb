@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
       resources :cars, except: [:new, :edit] do
         resources :rides, only: [:create]
+        resources :photos, only: [:create]
       end
       resources :rides, only: [] do
         get :driven, on: :collection

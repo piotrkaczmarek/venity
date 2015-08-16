@@ -7,6 +7,8 @@ gem 'rails', '4.2.3'
 
 gem 'puma'
 
+gem 'dotenv-rails'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -23,6 +25,9 @@ gem 'devise', '~> 3.4.0'
 gem 'api-versions'
 gem 'active_model_serializers'
 gem 'state_machines-activerecord'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog', require: 'fog/aws'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

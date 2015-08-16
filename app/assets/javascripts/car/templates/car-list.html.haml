@@ -2,7 +2,8 @@
 .panel.row{'ng-repeat' => 'car in vm.cars'}
   .car{'ui-sref' => 'main.carDetails({carId: car.id})'}
     .image.col-md-4
-      %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+      %img{src: '{{car.photo.thumb}}', 'ng-show' => 'car.photo.thumb'}
+      = image_tag('default-car-photo.jpg', 'ng-show' => '!car.photo.thumb')
     .details.col-md-2
       .make-model
         {{car.make + ' ' + car.model}}
