@@ -2,8 +2,8 @@
 .panel.row{'ng-repeat' => 'car in vm.cars'}
   .car{'ui-sref' => 'main.carDetails({carId: car.id})'}
     .image.col-md-4
-      %img{src: '{{car.photo.thumb}}', 'ng-if' => 'car.photo.thumb'}
-      = image_tag('default-car-photo.jpg', 'ng-if' => '!car.photo.thumb')
+      %img{src: '{{car.photo.thumb}}', 'ng-show' => 'car.photo.thumb'}
+      = image_tag('default-car-photo.jpg', 'ng-show' => '!car.photo.thumb')
     .details.col-md-2
       .make-model
         {{car.make + ' ' + car.model}}

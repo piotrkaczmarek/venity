@@ -1,8 +1,8 @@
 %h4{translate: true}CAR_EDIT_PAGE.TITLE
 .col-md-4
   .photo
-    %img{src: '{{vm.car.photo.thumb}}', 'ng-if' => 'vm.car.photo.thumb'}
-    = image_tag('default-car-photo.jpg', 'ng-if' => '!vm.car.photo.thumb')
+    %img{src: '{{vm.car.photo.thumb}}', 'ng-show' => 'vm.car.photo.thumb'}
+    = image_tag('default-car-photo.jpg', 'ng-show' => '!vm.car.photo.thumb')
     %button.btn.btn-default{'ngf-select' => true, 'ngf-change' => 'vm.upload($file)', translate: true}CAR_NEW_PAGE.UPLOAD
 .col-md-2
   %form.edit-car
