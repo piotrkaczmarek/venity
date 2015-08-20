@@ -13,7 +13,8 @@
       create: create,
       update: update,
       destroy: destroy,
-      isOwned: isOwned
+      isOwned: isOwned,
+      isAvailable: isAvailable
     };
     return factory;
 
@@ -51,6 +52,41 @@
 
     function isOwned(ownerId) {
       return Auth._currentUser && Auth._currentUser.profile_id === ownerId;
+    }
+
+    function isAvailable(car, start_datetime, end_datetime) {
+      var start, end;
+      if(start_datetime) {
+        start = new Date(start_datetime);
+      }
+      if(end_datetime) {
+        end = new Date(end_datetime);
+      }
+
+      if (start_datetime && end_datetime) {
+        return !_.find(car.accepted_rides, collides);
+      } else if (start_datetime || end_datetime) {
+        return !_.find(car.accepted_rides, isBetween);
+      } else {
+        return true;
+      }
+
+      function collides(ride) {
+        return !(endsBefore(ride) || startsAfter(ride));
+      }
+
+      function endsBefore(ride) {
+        return end < new Date(ride.start_datetime);
+      }
+
+      function startsAfter(ride) {
+        return start > new Date(ride.end_datetime);
+      }
+
+      function isBetween(ride) {
+        var date = start || end;
+        return date > new Date(ride.start_datetime) && date < new Date(ride.end_datetime);
+      }
     }
   }
 })();
