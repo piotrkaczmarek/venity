@@ -13,8 +13,10 @@ class Ride < ActiveRecord::Base
   validate :owner_cannot_be_driver
   validate :end_cannot_be_before_start
   validate :start_cannot_be_past, on: :create
+  validate :availability
 
   scope :owned_by, ->(profile_id) { includes(:car).where(cars: { owner_id: profile_id }) }
+  scope :accepted, -> { where(state: 'accepted') }
 
   state_machine initial: :unanswered do
     event :accept do
@@ -35,6 +37,27 @@ class Ride < ActiveRecord::Base
   end
 
   private
+
+  def availability
+    car.reload.rides.where(state: 'accepted').find_each do |ride|
+      if collides?(ride)
+        errors.add(:start_datetime, 'Date is not available')
+        return false
+      end
+    end
+  end
+
+  def collides?(ride)
+    !(ends_before(ride) || starts_after(ride))
+  end
+
+  def ends_before(ride)
+    end_datetime < ride.start_datetime
+  end
+
+  def starts_after(ride)
+    start_datetime > ride.end_datetime
+  end
 
   def owner_cannot_be_driver
     return unless driver_id && car
