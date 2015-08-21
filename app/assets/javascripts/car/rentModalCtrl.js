@@ -11,8 +11,8 @@
       vm.car = car;
       vm.addRide = addRide;
       vm.newRide = {
-        start_datetime: new Date(),
-        end_datetime: threeDaysFromNow()
+        start_datetime: moment(),
+        end_datetime: moment().add(3, 'days').format()
       };
       vm.startLocationLookupCallback = startLocationLookupCallback;
       vm.endLocationLookupCallback = endLocationLookupCallback;
@@ -26,11 +26,6 @@
           .error(function(error) {
             vm.errors = error;
           });
-      }
-
-      function threeDaysFromNow() {
-        var threeDaysInMiliseconds = 3*24*60*60*1000;
-        return new Date(Date.now() + threeDaysInMiliseconds);
       }
 
       function startLocationLookupCallback(pickedLocation) {

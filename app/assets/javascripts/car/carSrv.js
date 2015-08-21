@@ -57,10 +57,10 @@
     function isAvailable(car, start_datetime, end_datetime) {
       var start, end;
       if(start_datetime) {
-        start = new Date(start_datetime);
+        start = moment(start_datetime);
       }
       if(end_datetime) {
-        end = new Date(end_datetime);
+        end = moment(end_datetime);
       }
 
       if (start_datetime && end_datetime) {
@@ -72,20 +72,12 @@
       }
 
       function collides(ride) {
-        return !(endsBefore(ride) || startsAfter(ride));
-      }
-
-      function endsBefore(ride) {
-        return end < new Date(ride.start_datetime);
-      }
-
-      function startsAfter(ride) {
-        return start > new Date(ride.end_datetime);
+        return !(end.isBefore(ride.start_datetime, 'day') || start.isAfter(ride.end_datetime, 'day'));
       }
 
       function isBetween(ride) {
         var date = start || end;
-        return date > new Date(ride.start_datetime) && date < new Date(ride.end_datetime);
+        return date.isBetween(ride.start_datetime, ride.end_datetime, 'day');
       }
     }
   }

@@ -18,6 +18,7 @@
 PreCommit:
   JsHint:
     enabled: true
+    on_warn: fail
   Brakeman:
     enabled: true
   RuboCop:
