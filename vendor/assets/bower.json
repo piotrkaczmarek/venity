@@ -9,6 +9,7 @@
     "angular-devise": "latest",
     "angular-translate": "latest",
     "ng-file-upload": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
+    "angular-mocks": "latest"
   }
 }
