@@ -15,7 +15,7 @@
       function signOut() {
         Auth.logout()
           .then(function() {
-            $state.go('main.home', {}, { reload: true });
+            window.location = '/';
           });
       }
     }
