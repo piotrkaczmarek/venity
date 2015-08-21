@@ -19,6 +19,9 @@
 //= require angular-devise/lib/devise
 //= require angular-rails-templates
 //= require angular-translate
+//= require moment
+//= require angular-ui-calendar
+//= require fullcalendar
 //= require ng-file-upload
 //= require locator
 //= require locator/dist/locator-tpl

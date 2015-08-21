@@ -5,6 +5,7 @@
     .module('venity', [
       'ui.router',
       'ui.bootstrap',
+      'ui.calendar',
       'locator',
       'templates',
       'pascalprecht.translate',

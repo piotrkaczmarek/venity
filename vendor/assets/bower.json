@@ -5,6 +5,7 @@
     "ui-router": "latest",
     "bootstrap-sass-official": "latest",
     "angular-bootstrap": "latest",
+    "angular-ui-calendar": "latest",
     "locator": "git://github.com/winkerVSbecks/locator",
     "angular-devise": "latest",
     "angular-translate": "latest",
