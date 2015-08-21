@@ -40,6 +40,7 @@ class Ride < ActiveRecord::Base
 
   def availability
     car.reload.rides.where(state: 'accepted').find_each do |ride|
+      next if ride.id == id
       if collides?(ride)
         errors.add(:start_datetime, 'Date is not available')
         return false
