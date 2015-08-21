@@ -48,7 +48,12 @@
         .state('main.carDetails', {
           url: '/cars/{carId:[0-9]{1,8}}',
           controller: 'CarDetailsCtrl as vm',
-          templateUrl: 'car/templates/car-details.html'
+          templateUrl: 'car/templates/car-details.html',
+          resolve: {
+            car: ['CarSrv', '$stateParams', function(CarSrv, $stateParams) {
+              return CarSrv.show($stateParams.carId);
+            }]
+          }
         })
         .state('main.carEdit', {
           url: '/cars/{carId:[0-9]{1,8}}/edit',

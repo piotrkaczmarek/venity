@@ -3,7 +3,8 @@ class CarSerializer < ActiveModel::Serializer
   has_one :owner, serializer: ProfileSerializer
 
   def accepted_rides
-    object.rides.accepted.select(:id, :start_datetime, :end_datetime, :driver_id)
+    object.rides.accepted.joins(:driver)
+      .select(:id, :start_datetime, :end_datetime, :driver_id, 'profiles.first_name AS driver_name')
   end
 
   def photo

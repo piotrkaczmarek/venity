@@ -13,7 +13,6 @@ class Ride < ActiveRecord::Base
   validate :owner_cannot_be_driver
   validate :end_cannot_be_before_start
   validate :start_cannot_be_past, on: :create
-  validate :availability
 
   scope :owned_by, ->(profile_id) { includes(:car).where(cars: { owner_id: profile_id }) }
   scope :accepted, -> { where(state: 'accepted') }
@@ -33,6 +32,10 @@ class Ride < ActiveRecord::Base
 
     event :end do
       transition started: :ended
+    end
+
+    state :accepted, :unanswered do
+      validate :availability
     end
   end
 

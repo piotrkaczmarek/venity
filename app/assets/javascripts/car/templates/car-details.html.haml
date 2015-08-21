@@ -10,8 +10,13 @@
       {{vm.car.production_year}}
     .owner
       {{'CAR.OWNER' | translate}}: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}
+    .rides
+      .row{'ng-repeat' => 'ride in vm.car.accepted_rides'}
+        {{ ride.start_datetime | date: 'dd MMM yyyy'}} - {{ ride.end_datetime | date: 'dd MMM yyyy' }}
 .row
   %button.btn.btn-default{'ng-if' => 'vm.owned', 'ui-sref' => 'main.carEdit({carId: vm.car.id})', translate: true}
     EDIT
   %button.btn.btn-default{'ng-if' => '!vm.owned', 'ng-click' => 'vm.openRentModal()', translate: true}
     RENT
+.row
+  .calendar{'ui-calendar' => 'vm.calendarOptions', 'ng-model' => 'vm.calendarEvents'}
