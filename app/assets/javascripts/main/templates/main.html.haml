@@ -1,4 +1,5 @@
 %nav.navbar
+  -#%div.center-section
   .container-fluid
     .navbar-header
       %h3.logo{'ui-sref' => 'main.home'}
@@ -20,4 +21,19 @@
 %div.content{'ui-view' => true}
 
 %footer.footer-main
-  Footer content
+  %div.social-media-container.col-md-6
+    %ul.social-media-list
+      %li.social-facebook
+        %a{'href' => '#'} facebook
+      %li.social-instagram
+        %a{'href' => '#'} Instagram
+      %li.social-twitter
+        %a{'href' => '#'} Twitter
+  %div.footer-nav-container.col-md-6
+    %ul.about-company-info-list
+      %li
+        %a O HiRide
+      %li
+        %a Jak działa HiRide
+      %li
+        %a Regulamin
