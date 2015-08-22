@@ -6,12 +6,12 @@
   %h2.headline-home
     Wypożycz swój
     %br idealny samochód
-  %div.search-section-content
-    %input.search-car-main-wrapper{'value' => 'Warszawa'}
-    %span.day-rent-start
-      %input.search-car-main-wrapper{'value' => 'Od:'}
-    %span.day-rent-end
-      %input.search-car-main-wrapper{'value' => 'Do:'}
+  -#%div.search-section-content
+  -#  %input.search-car-main-wrapper{'value' => 'Warszawa'}
+  -#  %span.day-rent-start
+  -#    %input.search-car-main-wrapper{'value' => 'Od:'}
+  -#  %span.day-rent-end
+  -#    %input.search-car-main-wrapper{'value' => 'Do:'}
   %div.btn-search-car
     %button.btn-content Pokaż dostępne samochody
   %div.instruction
@@ -56,7 +56,7 @@
 
     %div.main-ad-brief.col-md-8.col-sm-12
       %div.car-image-container
-        %img.img-responsive{'src' => 'car_03.png'}
+        = image_tag('car_03.png', class: 'img-responsive')
 
       %div.car-price
         %p.price-content
@@ -106,13 +106,13 @@
           %span.price-content-add /dzień
 
   %section.search-car-section.col-md-8.col-md-offset-2
-    %select
-      %option{'value' => 'Audi'} Audi
-      %option{'value' => 'BMW'} BMW
-      %option{'value' => 'Honda'} Honda
-      %option{'value' => 'Opel'} Opel
-    %select
-      %option{'value' => 'Warszawa'} Warszawa
+    -#%select
+    -#  %option{'value' => 'Audi'} Audi
+    -#  %option{'value' => 'BMW'} BMW
+    -#  %option{'value' => 'Honda'} Honda
+    -#  %option{'value' => 'Opel'} Opel
+    -#%select
+    -#  %option{'value' => 'Warszawa'} Warszawa
     %button.find-car-btn Znajdź samochód
 
 
