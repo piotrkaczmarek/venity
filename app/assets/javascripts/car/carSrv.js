@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-
   angular
     .module('venity')
     .factory('CarSrv', CarSrv);
@@ -14,7 +13,8 @@
       create: create,
       update: update,
       destroy: destroy,
-      isOwned: isOwned
+      isOwned: isOwned,
+      isAvailable: isAvailable
     };
     return factory;
 
@@ -52,6 +52,33 @@
 
     function isOwned(ownerId) {
       return Auth._currentUser && Auth._currentUser.profile_id === ownerId;
+    }
+
+    function isAvailable(car, start_datetime, end_datetime) {
+      var start, end;
+      if(start_datetime) {
+        start = moment(start_datetime);
+      }
+      if(end_datetime) {
+        end = moment(end_datetime);
+      }
+
+      if (start_datetime && end_datetime) {
+        return !_.find(car.accepted_rides, collides);
+      } else if (start_datetime || end_datetime) {
+        return !_.find(car.accepted_rides, isBetween);
+      } else {
+        return true;
+      }
+
+      function collides(ride) {
+        return !(end.isBefore(ride.start_datetime, 'day') || start.isAfter(ride.end_datetime, 'day'));
+      }
+
+      function isBetween(ride) {
+        var date = start || end;
+        return date.isBetween(ride.start_datetime, ride.end_datetime, 'day');
+      }
     }
   }
 })();

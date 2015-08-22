@@ -1,25 +1,34 @@
 module Api
   module V1
     class RidesController < ApplicationController
-      def index
-        car = Car.find(params[:car_id])
-        if car.owned_by?(current_user.profile_id)
-          rides = car.rides
-        else
-          rides = car.rides.where(driver_id: current_user.profile_id)
-        end
+      def driven
+        rides = Ride.without_states(:rejected, :ended)
+                .where(driver_id: current_user.profile_id)
         respond_with(rides, each_serializer: RideSerializer)
       end
 
-      def show
-        car = Car.find(params[:car_id])
-        ride = car.rides.find(params[:id])
-        respond_with(ride, serializer: RideSerializer)
+      def owned
+        rides = Ride.without_states(:rejected, :ended).owned_by(current_user.profile_id)
+        respond_with(rides, each_serializer: RideSerializer)
       end
 
       def create
         car = Car.find(params[:car_id])
         ride = car.rides.create(ride_params)
+        respond_with(ride, serializer: RideSerializer)
+      end
+
+      def accept
+        ride = Ride.with_state(:unanswered).find(params[:id])
+        return forbidden! unless ride.car.owned_by?(current_user.profile_id)
+        ride.accept
+        respond_with(ride, serializer: RideSerializer)
+      end
+
+      def reject
+        ride = Ride.with_state(:unanswered).find(params[:id])
+        return forbidden! unless ride.car.owned_by?(current_user.profile_id)
+        ride.reject
         respond_with(ride, serializer: RideSerializer)
       end
 

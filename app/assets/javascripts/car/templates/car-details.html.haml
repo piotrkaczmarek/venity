@@ -1,16 +1,22 @@
-%h4 Car Details
+%h4{translate: true}CAR_DETAILS_PAGE.TITLE
 .row
   .image.col-md-4
-    %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+    %img{src: '{{vm.car.photo.thumb}}', 'ng-show' => 'vm.car.photo.thumb'}
+    = image_tag('default-car-photo.jpg', 'ng-show' => '!vm.car.photo.thumb')
   .details.col-md-2
     .make-model
       {{vm.car.make + ' ' + vm.car.model}}
     .production-year
       {{vm.car.production_year}}
     .owner
-      Owner: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}
+      {{'CAR.OWNER' | translate}}: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}
+    .rides
+      .row{'ng-repeat' => 'ride in vm.car.accepted_rides'}
+        {{ ride.start_datetime | date: 'dd MMM yyyy'}} - {{ ride.end_datetime | date: 'dd MMM yyyy' }}
 .row
-  %button.btn.btn-default{'ng-if' => 'vm.owned', 'ui-sref' => 'main.carEdit({carId: vm.car.id})'}
-    Edit
-  %button.btn.btn-default{'ng-if' => '!vm.owned', 'ng-click' => 'vm.openRentModal()'}
-    Rent
+  %button.btn.btn-default{'ng-if' => 'vm.owned', 'ui-sref' => 'main.carEdit({carId: vm.car.id})', translate: true}
+    EDIT
+  %button.btn.btn-default{'ng-if' => '!vm.owned', 'ng-click' => 'vm.openRentModal()', translate: true}
+    RENT
+.row
+  .calendar{'ui-calendar' => 'vm.calendarOptions', 'ng-model' => 'vm.calendarEvents'}

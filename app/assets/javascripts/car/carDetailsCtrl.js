@@ -4,22 +4,17 @@
     .module('venity')
     .controller('CarDetailsCtrl', CarDetailsCtrl);
 
-    CarDetailsCtrl.$inject = ['CarSrv', '$stateParams', '$state', '$modal'];
+    CarDetailsCtrl.$inject = ['car', 'CarSrv', '$state', '$modal'];
 
-    function CarDetailsCtrl(CarSrv, $stateParams, $state, $modal) {
+    function CarDetailsCtrl(car, CarSrv, $state, $modal) {
       var vm = this;
       vm.newRide = {};
       vm.rides = [];
       vm.openRentModal = openRentModal;
-
-      CarSrv.show($stateParams.carId)
-        .success(function(data) {
-          vm.car = data.car;
-          vm.owned = CarSrv.isOwned(vm.car.owner.id);
-        })
-        .error(function(error) {
-          $state.go('main.carList');
-        });
+      vm.calendarOptions = calendarOptions();
+      vm.car = car.data.car;
+      vm.owned = CarSrv.isOwned(vm.car.owner.id);
+      vm.calendarEvents = calendarEvents();
 
       function openRentModal() {
         $modal.open(modalOptions());
@@ -38,5 +33,22 @@
         }
       }
 
+      function calendarEvents() {
+        var events = _.map(vm.car.accepted_rides, function(ride) {
+          return {
+            start: ride.start_datetime,
+            end: ride.end_datetime,
+            title: ride.driver_name
+          };
+        });
+        return [events];
+      }
+
+      function calendarOptions() {
+        return {
+          height: 450,
+          editable: true
+        };
+      }
     }
 })();

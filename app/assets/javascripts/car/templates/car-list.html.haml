@@ -1,12 +1,20 @@
-%h4 Car List
-.panel.row{'ng-repeat' => 'car in vm.cars'}
+%h4{translate: true}CAR_LIST_PAGE.TITLE
+.filters.row
+  %input{'ng-model' => 'vm.query'}
+  %input{type: 'date', 'ng-model' => 'vm.start_datetime'}
+  %input{type: 'date', 'ng-model' => 'vm.end_datetime'}
+.panel.row{'ng-repeat' => 'car in vm.cars | filter: vm.isAvailable | filter: vm.query | orderBy: ["accepted_rides.length", "-production_year", "make"]'}
   .car{'ui-sref' => 'main.carDetails({carId: car.id})'}
     .image.col-md-4
-      %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
+      %img{src: '{{car.photo.thumb}}', 'ng-show' => 'car.photo.thumb'}
+      = image_tag('default-car-photo.jpg', 'ng-show' => '!car.photo.thumb')
     .details.col-md-2
       .make-model
         {{car.make + ' ' + car.model}}
       .production-year
         {{car.production_year}}
       .owner
-        Owner: {{car.owner.first_name + ' ' + car.owner.last_name}}
+        {{'CAR.OWNER' | translate}}: {{car.owner.first_name + ' ' + car.owner.last_name}}
+      .rides
+        .row{'ng-repeat' => 'ride in car.accepted_rides'}
+          {{ ride.start_datetime | date: 'dd MMM yyyy'}} - {{ ride.end_datetime | date: 'dd MMM yyyy' }}

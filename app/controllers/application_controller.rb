@@ -12,12 +12,20 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def current_profile
+    current_user.profile
+  end
+
   def not_found!
     render json: { message: 'record not found' }, status: :not_found
   end
 
   def ack!(message = 'OK')
     render json: { message: message }, status: :ok
+  end
+
+  def forbidden!
+    render json: { message: 'Forbidden' }, status: :forbidden
   end
 
   def unauthorized!

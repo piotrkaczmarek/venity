@@ -1,17 +1,15 @@
-%h4 Add a Car
-.col-md-4
-  %img{'src' => 'http://forgiato.com/photos/car-photos/thumbnails/chevrolet/camaro/camaro-concavo-forgiato-4-2015-1.jpg'}
-.col-md-2
+%h4{translate: true}CAR_NEW_PAGE.TITLE
+.col-md-6
   %form.add-car
     .errors{'ng-if' => 'vm.errors'}
       {{vm.errors}}
     .form-group.make
-      %label{'for' => 'make-input'}Make
+      %label{'for' => 'make-input', translate: true}CAR.MAKE
       %input#make-input.form-control{type: 'text', 'ng-model' => 'vm.car.make'}
     .form-group.model
-      %label{'for' => 'make-input'}Model
+      %label{'for' => 'make-input', translate: true}CAR.MODEL
       %input#model.form-control{type: 'text', 'ng-model' => 'vm.car.model'}
     .form-group.year
-      %label{'for' => 'year-input'}Year
+      %label{'for' => 'year-input', translate: true}CAR.YEAR
       %input#year.form-control{type: 'number', 'ng-model' => 'vm.car.production_year'}
-    %button.btn.btn-default{'ng-click' => 'vm.create()'}Create
+    %button.btn.btn-default{'ng-click' => 'vm.create()', translate: true}CREATE
