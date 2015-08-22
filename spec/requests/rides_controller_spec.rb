@@ -163,6 +163,38 @@ RSpec.describe Api::V1::CarsController, type: :request do
     end
   end
 
+  describe 'PUT #cancel' do
+    let!(:ride) { create(:ride, car: car, driver: driver) }
+
+    subject { api_put(user, cancel_api_ride_path(ride)) }
+
+    context 'as a driver' do
+      let(:user) { driver.user }
+
+      it 'returns 200' do
+        subject
+        expect(response.status).to eq(200)
+      end
+
+      it 'changes ride state to canceled' do
+        expect { subject }.to change { ride.reload.state }.to('canceled')
+      end
+    end
+
+    context 'as an owner' do
+      let(:user) { owner.user }
+
+      it 'returns 403' do
+        subject
+        expect(response.status).to eq(403)
+      end
+
+      it 'does not change ride state' do
+        expect { subject }.not_to change { ride.state }
+      end
+    end
+  end
+
   describe 'POST #create' do
     let(:params) { attributes_for(:ride, car: nil, driver: nil) }
 

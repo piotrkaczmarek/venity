@@ -32,6 +32,13 @@ module Api
         respond_with(ride, serializer: RideSerializer)
       end
 
+      def cancel
+        ride = Ride.with_state(:unanswered).find(params[:id])
+        return forbidden! unless ride.driver_id == current_user.profile_id
+        ride.cancel
+        respond_with(ride, serializer: RideSerializer)
+      end
+
       private
 
       def ride_params

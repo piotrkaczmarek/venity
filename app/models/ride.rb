@@ -27,6 +27,10 @@ class Ride < ActiveRecord::Base
       transition unanswered: :rejected
     end
 
+    event :cancel do
+      transition unanswered: :canceled
+    end
+
     event :start do
       transition accepted: :started
     end

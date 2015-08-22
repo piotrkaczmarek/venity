@@ -11,6 +11,7 @@
       vm.rides = {};
       vm.accept = accept;
       vm.reject = reject;
+      vm.cancel = cancel;
 
       RideSrv.owned()
         .success(function(data) {
@@ -31,6 +32,13 @@
 
       function reject(ride) {
         RideSrv.reject(ride.id)
+          .success(function(data) {
+            ride.state = data.ride.state;
+          });
+      }
+
+      function cancel(ride) {
+        RideSrv.cancel(ride.id)
           .success(function(data) {
             ride.state = data.ride.state;
           });

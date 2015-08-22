@@ -6,6 +6,10 @@
     .owner {{'CAR.OWNER' | translate}}: {{ride.car.owner.first_name + ' ' + ride.car.owner.last_name}}
     .start {{'RIDE.START' | translate}}: {{ride.start_datetime | date : 'medium'}}
     .end {{'RIDE.END' | translate}}: {{ride.end_datetime | date : 'medium'}}
+    .state
+      {{ride.state | uppercase | translate}}
+      .action{'ng-if' => 'ride.state != "canceled"'}
+        %button.btn.btn-danger{'ng-click' => 'vm.cancel(ride)', translate: true}CANCEL
 .owned.col-md-3
   %h3{translate: true}DASHBOARD_PAGE.AS_OWNER
   .rides{'ng-repeat' => 'ride in vm.rides.owned'}
@@ -17,5 +21,5 @@
       %button.btn.btn-success{'ng-click' => 'vm.accept(ride)', translate: true}ACCEPT
       %button.btn.btn-danger{'ng-click' => 'vm.reject(ride)', translate: true}REJECT
     .state{'ng-if' => 'ride.state != "unanswered"'}
-      {{ride.state}}
+      {{ride.state | uppercase | translate}}
 

@@ -13,6 +13,7 @@
       driven: driven,
       accept: accept,
       reject: reject,
+      cancel: cancel,
       create: create
     };
     return factory;
@@ -37,6 +38,13 @@
         throw('No rideId given');
       }
       return $http.put('api/rides/' + rideId + '/reject');
+    }
+
+    function cancel(rideId) {
+      if(!rideId) {
+        throw('No rideId given');
+      }
+      return $http.put('api/rides/' + rideId + '/cancel');
     }
 
     function create(carId, ride) {

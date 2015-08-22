@@ -20,6 +20,7 @@ Rails.application.routes.draw do
         get :owned,  on: :collection
         put :accept, on: :member
         put :reject, on: :member
+        put :cancel, on: :member
       end
     end
   end

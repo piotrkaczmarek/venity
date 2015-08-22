@@ -19,7 +19,7 @@
       $urlRouterProvider.otherwise('/');
 
       $translateProvider
-        .translations('en', translations.en)
+        // .translations('en', translations.en)
         .translations('pl', translations.pl)
         .preferredLanguage('pl');
       $translateProvider.useSanitizeValueStrategy('escape');
