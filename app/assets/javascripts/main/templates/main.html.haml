@@ -1,22 +1,40 @@
-%nav.navbar.navbar-default
+%nav.navbar
   .container-fluid
     .navbar-header
       %h3.logo{'ui-sref' => 'main.home'}
         VENITY
     .collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        %li
+      %ul.navigation-list
+        %li.car-list-nav-btn
           %a{'ui-sref' => 'main.carList', translate: true}NAVBAR.CAR_LIST
-        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+        %li.add-car-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.dashboard', translate: true}NAVBAR.DASHBOARD
-        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+        %li.add-car-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.carNew', translate: true}NAVBAR.ADD_CAR
-        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+        %li.profile-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.profile', translate: true}NAVBAR.EDIT_PROFILE
-        %li{'ng-if' => 'mainCtrl.isAuthenticated'}
+        %li.sign-out-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
           %a{'ng-click' => 'mainCtrl.signOut()', translate: true}NAVBAR.SIGN_OUT
-        %li{'ng-if' => '!mainCtrl.isAuthenticated'}
+        %li.sign-in-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.signIn', translate: true}NAVBAR.SIGN_IN
-        %li{'ng-if' => '!mainCtrl.isAuthenticated'}
+        %li.sign-up-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
           %a{'ui-sref' => 'main.signUp', translate: true}NAVBAR.SIGN_UP
-.content.container{'ui-view' => true}
+%div.content{'ui-view' => true}
+
+%footer.footer-main
+  %div.social-media-container.col-md-6
+    %ul.social-media-list
+      %li.social-facebook
+        %a{'href' => '#'} Facebook
+      %li.social-instagram
+        %a{'href' => '#'} Instagram
+      %li.social-twitter
+        %a{'href' => '#'} Twitter
+  %div.footer-nav-container.col-md-6
+    %ul.about-company-info-list
+      %li
+        %a O HiRide
+      %li
+        %a Jak działa HiRide
+      %li
+        %a Regulamin

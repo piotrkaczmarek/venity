@@ -1,4 +1,136 @@
-%div{'ng-if' => 'mainCtrl.isAuthenticated'}
-  Hello {{mainCtrl.currentUser.email}} !
-%div{'ng-if' => '!mainCtrl.isAuthenticated'}
-  Not logged in
+-#%div{'ng-if' => 'mainCtrl.isAuthenticated'}
+-#  Hello {{mainCtrl.currentUser.email}} !
+
+%section.main-search-section
+  -#%div.center-section
+  %h2.headline-home
+    Wypożycz swój
+    %br idealny samochód
+  %div.search-section-content
+    %input.search-car-main-wrapper{'value' => 'Warszawa'}
+    %span.day-rent-start
+      %input.search-car-main-wrapper{'value' => 'Od:'}
+    %span.day-rent-end
+      %input.search-car-main-wrapper{'value' => 'Do:'}
+  %div.btn-search-car
+    %button.btn-content Pokaż dostępne samochody
+  %div.instruction
+    %p.instruction-intro Twój samochód może zarabiać dla Ciebie
+    %a.instruction-link Zobacz jak działa HiRide
+
+
+%section.description-section
+  -#%div.center-section
+  %h2.headline How it works?
+  %div.description-wrapper
+    %div.description-content.col-md-4.protection-content
+      %div.icon-container-protect
+      %div.container-protect-mob-dev
+        %h3.description-content-headline
+          Chronimy Twój samochód
+        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    %div.description-content.col-md-4.price-and-av-content
+      %div.icon-container-earn
+      %div.container-protect-mob-dev
+        %h3.description-content-headline
+          Ty decydujesz o dostępności i cenie wypożyczenia
+        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+    %div.description-content.col-md-4.decision-content
+      %div.icon-container-agree
+      %div.container-protect-mob-dev
+        %h3.description-content-headline
+          Ty decydujesz kto może wypożyczyć Twój samochód
+        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+  %div.description-action
+    %button.list-car-btn Udostępnij swój samochód
+    %a.link-learn-more{'href' => '#'} Dowiedz się więcej
+
+
+%section.car-list-section.container-fluid
+  %h3.headline Znajdź swój idealny samochód
+
+  %div.car-list-main.col-md-8.col-md-offset-2
+
+    %div.main-ad-brief.col-md-8.col-sm-12
+      %div.car-image-container
+        %img.img-responsive{'src' => 'car_03.png'}
+
+      %div.car-price
+        %p.price-content
+          200 zł
+          %span.price-content-add /dzień
+
+      %div.car-short-info
+        %p.car-model BMW M5
+        %p.car-owner
+          Samochód użytkownika:
+          %span.car-owner-name Steve Rogers
+        -#%div.rate
+        -#  %p *****
+
+    %div.ad-brief.col-md-4.col-sm-12
+      %div.car-image-container
+        %img.img-responsive{'src' => 'assets/images/car_06.png'}
+
+      %div.car-price
+        %p.price-content
+          200 zł
+          %span.price-content-add /dzień
+
+  %div.car-list-further.col-md-8.col-md-offset-2
+    %div.ad-brief.col-md-4
+      %div.car-image-container
+        %img.img-responsive{'src' => 'car_08.png'}
+      %div.car-price
+        %p.price-content
+          200 zł
+          %span.price-content-add /dzień
+
+    %div.ad-brief.col-md-4.col-sm-12
+      %div.car-image-container
+        %img.img-responsive{'src' => 'car_06.png'}
+      %div.car-price
+        %p.price-content
+          200 zł
+          %span.price-content-add /dzień
+
+    %div.ad-brief.col-md-4.col-sm-12
+      %div.car-image-container
+        %img.img-responsive{'src' => 'car_10.jpg'}
+      %div.car-price
+        %p.price-content
+          200 zł
+          %span.price-content-add /dzień
+
+  %section.search-car-section.col-md-8.col-md-offset-2
+    %select
+      %option{'value' => 'Audi'} Audi
+      %option{'value' => 'BMW'} BMW
+      %option{'value' => 'Honda'} Honda
+      %option{'value' => 'Opel'} Opel
+    %select
+      %option{'value' => 'Warszawa'} Warszawa
+    %button.find-car-btn Znajdź samochód
+
+
+%section.additional-information-section
+  %div.long-term-info-section
+    %h3.headline
+      Wypożyczenia
+      %br
+      %span.headline-important długoterminowe
+  %div.airport-info-section
+    %h3.headline
+      HiRide
+      %span.headline-sec
+        dostępne
+      %span.headline-important na lotnisku
+
+%section.additional-action-section
+  %div.list-car-wrapper.col-md-6
+    %button.list-car-btn Udostępnij swój samochód
+  %div.list-car-wrapper-mob-dev.col-md-6
+    %button.find-car-btn Znajdź samochód

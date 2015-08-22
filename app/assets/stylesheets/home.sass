@@ -1,0 +1,409 @@
+// Main search section - search car
+@import "theme"
+
+body
+  font-family: 'Exo', sans-serif!important
+
+.center-section
+  margin: 0 auto
+  width: 1174px
+
+.main-search-section
+  background: url(headline-bg.jpg) no-repeat
+  background-size: 100% 100%
+  height: 700px
+  text-align: center
+
+  .headline-home
+    color: $white
+    font-size: 52px
+    font-weight: 100
+    margin: 0
+    padding: 90px 0 75px
+    text-transform: uppercase
+
+  .search-section-content
+    background: $white
+    display: inline-block
+    margin: 0 auto
+    padding: 18px 22px
+    width: 887px
+
+    input
+      color: $grey-input-color
+      font-weight: 300
+      padding: 17px 20px
+      width: 32%
+
+  .day-rent-start
+    position: relative
+    &:after
+      background: url(calendar-icon.jpg) no-repeat
+      content: ''
+      height: 28px
+      right: 19px
+      top: -2px
+      position: absolute
+      width: 28px
+
+  .day-rent-end
+    position: relative
+    &:after
+      background: url(calendar-icon.jpg) no-repeat
+      content: ''
+      height: 28px
+      right: 19px
+      top: -2px
+      position: absolute
+      width: 28px
+
+
+  .instruction-info
+
+  .instruction-link
+    text-decoration: underline
+
+  .instruction
+    color: $white
+    font-size: 14px
+    font-weight: 300
+    .instruction-intro
+      display: inline-block
+
+    .instruction-link
+      color: $white
+      cursor: pointer
+
+.btn-search-car
+  margin: 21px 0 40px
+
+  .btn-content
+    background: $blue-sea-btn
+    border: none
+    color: $white
+    font-size: 18px
+    font-weight: 300
+    padding: 22px 0
+    width: 887px
+
+
+
+
+// Description section - "How it works?"
+
+.description-section
+
+  background-image: url(bg-how-it-works.jpg)
+  background-repeat: repeat-y
+  padding: 110px 0 65px
+
+  .description-wrapper
+    display: table
+
+    .icon-container-protect
+      background: url(protect-car-icon.png) no-repeat
+      background-size: contain
+      display: inline-block
+      height: 212px
+      width: 212px
+
+    .icon-container-earn
+      background: url(earn-icon.png) no-repeat
+      background-size: contain
+      display: inline-block
+      height: 212px
+      width: 212px
+
+    .icon-container-agree
+      background: url(agree-icon.png) no-repeat
+      background-size: contain
+      display: inline-block
+      height: 212px
+      width: 212px
+
+
+  .headline
+    color: $blue-sea-btn
+    font-size: 42px
+    font-weight: 100
+    margin-bottom: 70px
+    text-align: center
+    text-transform: uppercase
+
+  .description-content
+    text-align: center
+
+    .description-content-headline
+      color: $blue-sea-btn
+      font-size: 16px
+      font-weight: 100
+      line-height: 20px
+      text-align: center
+      text-transform: uppercase
+
+    .description-intro
+      padding: 0 14%
+      text-align: center
+
+  .description-action
+    margin: 50px 0 68px
+    text-align: center
+
+    .list-car-btn
+      background: $blue-sea-btn
+      border: none
+      color: $white
+      padding: 15px 40px 15px 60px
+      position: relative
+
+      &:after
+        background: url(list-car.png) no-repeat
+        content: ''
+        height: 20px
+        left: 22px
+        top: 12px
+        position: absolute
+        width: 20px
+
+      &:before
+        background: $blue-additional-decorative-btn
+        content: ''
+        height: 49px
+        left: -10px
+        top: 0px
+        position: absolute
+        width: 10px
+
+    .link-learn-more
+      color: $blue-sea-btn
+      margin-left: 20px
+      text-decoration: underline
+
+
+
+// Rent a car section - list of cars and search
+
+.car-list-section
+  padding: 65px 0 100px
+  .headline
+    color: $blue-sea-btn
+    font-size: 42px
+    font-weight: 100
+    text-align: center
+    text-transform: uppercase
+    margin-bottom: 40px
+
+  .car-list-main
+    margin-bottom: 15px
+
+    .main-ad-brief
+
+
+  .car-list-further
+
+
+  .main-ad-brief
+    position: relative
+    padding-left: 0px
+
+    .car-image-container
+      background: grey
+      height: 200px
+      width: 100%
+
+    .car-price
+      background: $blue-sea-input-icon
+      bottom: 0px
+      display: inline-block
+      position: absolute
+      left: 0px
+      width: 30%
+
+      .price-content
+        color: $white
+        font-size: 18px
+        font-weight: 700
+        margin: 0
+        padding: 10px 15px
+
+        .price-content-add
+          font-size: 11px
+          font-weight: 100
+
+    .car-short-info
+      background: $black
+      bottom: 0
+      display: inline-block
+      padding: 4px 15px
+      position: absolute
+      left: 161px
+
+      .car-model
+        color: $white
+        font-weight: 300
+        margin: 0
+
+      .car-owner
+        color: $white
+        margin: 0
+
+  .ad-brief
+    background: grey
+    box-sizing: border-box
+    height: 200px
+    padding: 0
+    position: relative
+    width: 32%
+    margin-right: 10px
+
+    .car-price
+      background: $blue-sea-input-icon
+      bottom: 0px
+      display: inline-block
+      position: absolute
+      left: 0px
+
+      .price-content
+        color: $white
+        font-size: 18px
+        font-weight: 700
+        margin: 0
+        padding: 10px 15px
+
+        .price-content-add
+          font-size: 11px
+          font-weight: 100
+
+  .search-car-section
+    margin-top: 60px
+    text-align: center
+
+    .find-car-btn
+      background: $blue-sea-btn
+      border: none
+      color: $white
+      padding: 15px 50px 15px 70px
+      position: relative
+
+      &:after
+        background: url(list-car.png) no-repeat
+        content: ''
+        height: 20px
+        left: 22px
+        top: 12px
+        position: absolute
+        width: 20px
+
+      &:before
+        background: $blue-additional-decorative-btn
+        content: ''
+        height: 49px
+        left: -10px
+        top: 0px
+        position: absolute
+        width: 10px
+
+
+
+
+// Additional information section - information about long term rental and airport availability
+
+.additional-information-section
+  height: 500px
+
+  .long-term-info-section
+    background: url(long-term-icon.png) no-repeat
+    background-size: cover
+    background-position: 100% 100%
+    display: inline-block
+    height: inherit
+    position: relative
+    width: 50%
+
+    .headline
+      color: $white
+      font-size: 42px
+      font-weight: 100
+      line-height: 55px
+      position: absolute
+      left: 28%
+      top: 17%
+      text-align: left
+
+  .airport-info-section
+    background: url(airport-bg.png) no-repeat
+    background-size: cover
+    display: inline-block
+    height: inherit
+    float: right
+    position: relative
+    width: 50%
+
+  .headline
+    color: $white
+    font-size: 42px
+    font-weight: 100
+    line-height: 55px
+    left: 10%
+    top: 35%
+    position: absolute
+
+  .headline-sec
+    display: block
+    font-weight: 100
+
+  .headline-important
+    font-weight: 800
+
+
+// aditional action section
+
+.additional-action-section
+  background: url(footer-bg.jpg)
+  background-size: 100% 100%
+  padding: 100px 0 100px
+  overflow: hidden
+
+  .list-car-wrapper
+    text-align: right
+
+  .list-car-btn
+    background: #36c1d5
+    border: none
+    color: #ffffff
+    padding: 15px 40px 15px 60px
+    position: relative
+
+    &:after
+      background: url(list-car.png) no-repeat
+      content: ''
+      height: 20px
+      left: 22px
+      top: 12px
+      position: absolute
+      width: 20px
+
+    &:before
+      background: $blue-additional-decorative-btn
+      content: ''
+      height: 49px
+      left: 0px
+      top: 0px
+      position: absolute
+      width: 10px
+
+  .find-car-btn
+    background: transparent
+    color: $white
+    border: 2px $white solid
+    padding: 13px 40px 14px 60px
+    position: relative
+
+    &:before
+      background: $white
+      content: ''
+      height: 47px
+      left: 0px
+      top: 0px
+      position: absolute
+      width: 10px
