@@ -11,7 +11,7 @@
     .owner
       {{'CAR.OWNER' | translate}}: {{vm.car.owner.first_name + ' ' + vm.car.owner.last_name}}
     .rides
-      .row{'ng-repeat' => 'ride in vm.car.accepted_rides'}
+      .row{'ng-repeat' => 'ride in vm.car.active_rides'}
         {{ ride.start_datetime | date: 'dd MMM yyyy'}} - {{ ride.end_datetime | date: 'dd MMM yyyy' }}
 .row
   %button.btn.btn-default{'ng-if' => 'vm.owned', 'ui-sref' => 'main.carEdit({carId: vm.car.id})', translate: true}

@@ -34,7 +34,7 @@
       }
 
       function calendarEvents() {
-        var events = _.map(vm.car.accepted_rides, function(ride) {
+        var events = _.map(vm.car.active_rides, function(ride) {
           return {
             start: ride.start_datetime,
             end: ride.end_datetime,

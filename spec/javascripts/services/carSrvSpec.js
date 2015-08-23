@@ -23,7 +23,7 @@ describe('CarSrvSpec', function() {
       describe('when it is available', function() {
         it('returns true', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-03T17:11:11.756Z',
                 end_datetime: '2015-08-04T17:11:11.756Z'
@@ -41,7 +41,7 @@ describe('CarSrvSpec', function() {
       describe('when start date collides', function() {
         it('returns false', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-03T17:11:11.756Z',
                 end_datetime: '2015-08-06T17:11:11.756Z'
@@ -55,7 +55,7 @@ describe('CarSrvSpec', function() {
       describe('when end date collides', function() {
         it('returns false', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-07T17:11:11.756Z',
                 end_datetime: '2015-08-11T17:11:11.756Z'
@@ -69,7 +69,7 @@ describe('CarSrvSpec', function() {
       describe('when there is other ride between start and end', function() {
         it('returns false', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-06T17:11:11.756Z',
                 end_datetime: '2015-08-07T17:11:11.756Z'
@@ -83,7 +83,7 @@ describe('CarSrvSpec', function() {
       describe('when there is other longer ride around dates', function() {
         it('returns false', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-01T17:11:11.756Z',
                 end_datetime: '2015-08-10T17:11:11.756Z'
@@ -97,7 +97,7 @@ describe('CarSrvSpec', function() {
       describe('when dates collide with two different rides', function() {
         it('returns false', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-01T17:11:11.756Z',
                 end_datetime: '2015-08-06T17:11:11.756Z'
@@ -117,7 +117,7 @@ describe('CarSrvSpec', function() {
       describe('when there is ride that finished before start', function() {
         it('returns true', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-01T17:11:11.756Z',
                 end_datetime: '2015-08-04T17:11:11.756Z'
@@ -132,7 +132,7 @@ describe('CarSrvSpec', function() {
       describe('when there is ride that begins after start', function() {
         it('returns true', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-10T17:11:11.756Z',
                 end_datetime: '2015-08-11T17:11:11.756Z'
@@ -147,7 +147,7 @@ describe('CarSrvSpec', function() {
       describe('when there is ride that does not finish before start', function() {
         it('returns false', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-01T17:11:11.756Z',
                 end_datetime: '2015-08-11T17:11:11.756Z'
@@ -165,7 +165,7 @@ describe('CarSrvSpec', function() {
       describe('when there is ride that finished before end', function() {
         it('returns true', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-01T17:11:11.756Z',
                 end_datetime: '2015-08-07T17:11:11.756Z'
@@ -180,7 +180,7 @@ describe('CarSrvSpec', function() {
       describe('when there is ride that begins after end', function() {
         it('returns true', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-10T17:11:11.756Z',
                 end_datetime: '2015-08-11T17:11:11.756Z'
@@ -195,7 +195,7 @@ describe('CarSrvSpec', function() {
       describe('when there is ride that does not finish before start', function() {
         it('returns false', function() {
           var car = {
-            accepted_rides: [
+            active_rides: [
               {
                 start_datetime: '2015-08-01T17:11:11.756Z',
                 end_datetime: '2015-08-11T17:11:11.756Z'

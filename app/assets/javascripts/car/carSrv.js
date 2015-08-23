@@ -64,9 +64,9 @@
       }
 
       if (start_datetime && end_datetime) {
-        return !_.find(car.accepted_rides, collides);
+        return !_.find(car.active_rides, collides);
       } else if (start_datetime || end_datetime) {
-        return !_.find(car.accepted_rides, isBetween);
+        return !_.find(car.active_rides, isBetween);
       } else {
         return true;
       }

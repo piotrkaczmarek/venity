@@ -26,7 +26,7 @@ class Ride < ActiveRecord::Base
   validate :available?
 
   scope :owned_by, ->(profile_id) { includes(:car).where(cars: { owner_id: profile_id }) }
-  scope :accepted, -> { where(state: 'accepted') }
+  scope :active, -> { where(state: %w(accepted started)) }
 
   state_machine initial: :unanswered do
     event :accept do
@@ -55,7 +55,7 @@ class Ride < ActiveRecord::Base
   end
 
   def available?
-    car.reload.rides.where(state: 'accepted').find_each do |ride|
+    car.reload.rides.active.find_each do |ride|
       next if ride.id == id
       if collides?(ride)
         errors.add(:start_datetime, 'Collides with earlier ride') unless starts_after(ride)
