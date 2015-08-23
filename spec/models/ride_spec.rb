@@ -62,5 +62,19 @@ RSpec.describe Ride, type: :model do
         it { is_expected.to be_valid }
       end
     end
+
+    describe 'geographic coordinates' do
+      context 'when end_lng is missing' do
+        subject { build(:ride, end_lng: nil) }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context 'when start_lat is not within range' do
+        subject { build(:ride, start_lat: -200) }
+
+        it { is_expected.not_to be_valid }
+      end
+    end
   end
 end

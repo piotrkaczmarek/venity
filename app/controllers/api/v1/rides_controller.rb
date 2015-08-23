@@ -46,8 +46,10 @@ module Api
                       :end_datetime,
                       :start_lng,
                       :start_lat,
+                      :start_location,
                       :end_lng,
-                      :end_lat).merge(driver_id: current_user.profile_id)
+                      :end_lat,
+                      :end_location).merge(driver_id: current_user.profile_id)
       end
     end
   end

@@ -217,14 +217,33 @@ RSpec.describe Api::V1::CarsController, type: :request do
     context 'when posted by not owner' do
       let(:user) { driver.user }
 
-      it 'creates a new ride' do
-        expect { subject }.to change(Ride, :count).by(1)
+      context 'when params are valid' do
+        it 'creates a new ride' do
+          expect { subject }.to change(Ride, :count).by(1)
+        end
+
+        it 'returns created ride' do
+          subject
+          expect(response.status).to eq(200)
+          expect(json_response).to include('ride')
+        end
       end
 
-      it 'returns created ride' do
-        subject
-        expect(response.status).to eq(200)
-        expect(json_response).to include('ride')
+      context 'when params are not valid' do
+        before do
+          params[:start_datetime] = 'bad_input'
+          params.delete(:end_lng)
+        end
+
+        it 'returns 409' do
+          subject
+          expect(response.status).to eq(409)
+          expect(json_response['errors'].keys).to include('start_datetime', 'end_lng')
+        end
+
+        it 'does not create a new ride' do
+          expect { subject }.not_to change(Ride, :count)
+        end
       end
     end
   end

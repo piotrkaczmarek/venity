@@ -6,10 +6,20 @@ class Ride < ActiveRecord::Base
   validates :car_id,         presence: true
   validates :start_datetime, presence: true
   validates :end_datetime,   presence: true
-  validates :start_lng,      presence: true, if: proc { start_lat.present? }
-  validates :start_lat,      presence: true, if: proc { start_lng.present? }
-  validates :end_lng,        presence: true, if: proc { end_lat.present? }
-  validates :end_lat,        presence: true, if: proc { end_lng.present? }
+  validates :start_lng,
+            presence: true,
+            numericality: { greater_than_or_equal_to: -180.0, less_than_or_equal_to: 180.0 }
+  validates :start_lat,
+            presence: true,
+            numericality: { greater_than_or_equal_to: -180.0, less_than_or_equal_to: 180.0 }
+  validates :start_location, presence: true
+  validates :end_lng,
+            presence: true,
+            numericality: { greater_than_or_equal_to: -180.0, less_than_or_equal_to: 180.0 }
+  validates :end_lat,
+            presence: true,
+            numericality: { greater_than_or_equal_to: -180.0, less_than_or_equal_to: 180.0 }
+  validates :end_location, presence: true
   validate :owner_cannot_be_driver
   validate :end_cannot_be_before_start
   validate :start_cannot_be_past, on: :create

@@ -6,7 +6,9 @@ FactoryGirl.define do
     end_datetime { rand(5..10).days.since }
     start_lng { rand(-180.0..180.0) }
     start_lat { rand(-90.0..90.0) }
+    start_location { FFaker::Address.street_address }
     end_lng { rand(-180.0..180.0) }
     end_lat { rand(-90.0..90.0) }
+    end_location { FFaker::Address.street_address }
   end
 end

@@ -14,8 +14,8 @@
               %input#start-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.start_datetime'}
             .row
               %label{translate: true}WHERE
-              .picked-location{'ng-if' => 'vm.newRide.start_description'}
-                {{vm.newRide.start_description}}
+              .picked-location{'ng-if' => 'vm.newRide.start_location'}
+                {{vm.newRide.start_location}}
               %location-lookup{'ng-model' => 'vm.startLocation', callback: '$parent.vm.startLocationLookupCallback', 'limit-to' => 5}
         .col-md-6
           .form-group.end
@@ -25,8 +25,8 @@
               %input#end-datetime-input{type: 'date', 'ng-model' => 'vm.newRide.end_datetime'}
             .row
               %label{translate: true}WHERE
-              .picked-location{'ng-if' => 'vm.newRide.end_description'}
-                {{vm.newRide.end_description}}
+              .picked-location{'ng-if' => 'vm.newRide.end_location'}
+                {{vm.newRide.end_location}}
               %location-lookup{'ng-model' => 'vm.endLocation', callback: '$parent.vm.endLocationLookupCallback', 'limit-to' => 5}
               = image_tag('powered-by-google-on-white.png')
     .row
