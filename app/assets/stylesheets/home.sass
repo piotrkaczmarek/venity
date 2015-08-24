@@ -199,49 +199,56 @@ body
     margin-bottom: 40px
 
   .car-list-main
-    margin-bottom: 15px
-
-    .main-ad-brief
+    margin: 0 auto
+    width: 80%
 
 
   .car-list-further
-
+    margin: 0 auto
+    width: 80%
 
   .main-ad-brief
+    display: inline-block
     position: relative
     padding-left: 0px
+    margin-right: 10px
+    width: 65%
 
     .car-image-container
       background: grey
       height: 200px
+      overflow: hidden
+      width: 100%
+
+      .car-photo-main
+        height: 100%
+
+    .car-brief-info
+      bottom: 0
+      position: absolute
       width: 100%
 
     .car-price
-      background: $blue-sea-input-icon
-      bottom: 0px
+      background: rgba(45,151,170, .8)
       display: inline-block
-      position: absolute
-      left: 0px
-      width: 30%
+      height: 46px
+      vertical-align: top
 
       .price-content
         color: $white
-        font-size: 1.125em
+        font-size: 18px
         font-weight: 700
         margin: 0
         padding: 10px 15px
 
         .price-content-add
-          font-size: 0.7em
+          font-size: 1em
           font-weight: 100
 
     .car-short-info
-      background: $black
-      bottom: 0
+      background: rgba(0,0,0, .8)
       display: inline-block
       padding: 4px 15px
-      position: absolute
-      left: 161px
 
       .car-model
         color: $white
@@ -255,14 +262,16 @@ body
   .ad-brief
     background: grey
     box-sizing: border-box
+    display: inline-block
     height: 200px
     padding: 0
     position: relative
+    overflow: hidden
     width: 32%
-    margin-right: 10px
+    margin-right: 7px
 
     .car-price
-      background: $blue-sea-input-icon
+      background: rgba(45,151,170, .8)
       bottom: 0px
       display: inline-block
       position: absolute
@@ -276,7 +285,7 @@ body
         padding: 10px 15px
 
         .price-content-add
-          font-size: 1.125em
+          font-size: 1em
           font-weight: 100
 
   .search-car-section
@@ -364,11 +373,11 @@ body
 // aditional action section
 
 .additional-action-section
-  background: url(footer-bg.jpg)
+  background: $white
   background-size: cover
   background-position: center
   padding: 100px 0 100px
-  overflow: hidden
+  //overflow: hidden
 
   .list-car-wrapper
     text-align: right
@@ -400,13 +409,13 @@ body
 
   .find-car-btn
     background: transparent
-    color: $white
-    border: 2px $white solid
+    color: $blue-additional-decorative-btn
+    border: 2px $blue-additional-decorative-btn solid
     padding: 13px 40px 14px 60px
     position: relative
 
     &:before
-      background: $white
+      background: $blue-additional-decorative-btn
       content: ''
       height: 47px
       left: 0px

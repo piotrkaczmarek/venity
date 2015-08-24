@@ -52,54 +52,55 @@
 %section.car-list-section.container-fluid
   %h3.headline Znajdź swój idealny samochód
 
-  %div.car-list-main.col-md-8.col-md-offset-2
+  %div.car-list-main
 
-    %div.main-ad-brief.col-md-8.col-sm-12
+    %div.main-ad-brief
       %div.car-image-container
-        = image_tag('car_03.png', class: 'img-responsive')
+        = image_tag('car_03.png', class: 'car-photo-main')
+
+      %div.car-brief-info
+        %div.car-price
+          %p.price-content
+            200 zł
+            %span.price-content-add /dzień
+
+        %div.car-short-info
+          %p.car-model BMW M5
+          %p.car-owner
+            Samochód użytkownika:
+            %span.car-owner-name Steve Rogers
+          -#%div.rate
+          -#  %p *****
+
+    %div.ad-brief
+      %div.car-image-container
+        = image_tag('car_06.png', class: 'car-photo-main')
 
       %div.car-price
         %p.price-content
           200 zł
           %span.price-content-add /dzień
 
-      %div.car-short-info
-        %p.car-model BMW M5
-        %p.car-owner
-          Samochód użytkownika:
-          %span.car-owner-name Steve Rogers
-        -#%div.rate
-        -#  %p *****
-
-    %div.ad-brief.col-md-4.col-sm-12
+  %div.car-list-further
+    %div.ad-brief
       %div.car-image-container
-        %img.img-responsive{'src' => 'assets/images/car_06.png'}
-
+        = image_tag('car_08.png', class: 'car-photo-main')
       %div.car-price
         %p.price-content
           200 zł
           %span.price-content-add /dzień
 
-  %div.car-list-further.col-md-8.col-md-offset-2
-    %div.ad-brief.col-md-4
+    %div.ad-brief
       %div.car-image-container
-        %img.img-responsive{'src' => 'car_08.png'}
+        = image_tag('car_06.png', class: 'car-photo-main')
       %div.car-price
         %p.price-content
           200 zł
           %span.price-content-add /dzień
 
-    %div.ad-brief.col-md-4.col-sm-12
+    %div.ad-brief
       %div.car-image-container
-        %img.img-responsive{'src' => 'car_06.png'}
-      %div.car-price
-        %p.price-content
-          200 zł
-          %span.price-content-add /dzień
-
-    %div.ad-brief.col-md-4.col-sm-12
-      %div.car-image-container
-        %img.img-responsive{'src' => 'car_10.jpg'}
+        = image_tag('car_10.jpg', class: 'car-photo-main')
       %div.car-price
         %p.price-content
           200 zł
