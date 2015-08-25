@@ -1,0 +1,8 @@
+pl:
+  mailers:
+    ride:
+      new_request:
+        subject: "%{driver_name} chce wypożyczyć %{make} %{model}"
+        header: "Hej, %{owner_name}!"
+        paragraph: "%{driver_name} chce wypożyczyć %{make} %{model}."
+        action: 'Zaloguj się by zaakceptować lub odrzucić tę prośbę.'

@@ -15,6 +15,7 @@ module Api
       def create
         car = Car.find(params[:car_id])
         ride = car.rides.create(ride_params)
+        RideMailer.new_request(ride, ride.driver, car.owner).deliver_later if ride.valid?
         respond_with(ride, serializer: RideSerializer)
       end
 
