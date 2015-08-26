@@ -28,6 +28,8 @@ gem 'state_machines-activerecord'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog', require: 'fog/aws'
+gem 'delayed_job_active_record'
+gem 'delayed_job_web'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

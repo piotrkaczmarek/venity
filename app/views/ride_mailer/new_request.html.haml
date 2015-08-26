@@ -1,0 +1,5 @@
+%h1
+  = t('mailers.ride.new_request.header', owner_name: @owner.first_name)
+%p
+  = t('mailers.ride.new_request.paragraph', driver_name: @driver.first_name, make: @car.make, model: @car.model)
+  / = link_to(t('mailers.ride.new_request.action'), root_url + 'dashboard')

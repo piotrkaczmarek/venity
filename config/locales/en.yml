@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  mailers:
+    ride:
+      new_request:
+        subject: "%{driver_name} wants to rent %{make} %{model}"
+        header: "Hey, %{owner_name}!"
+        paragraph: "%{driver_name} wants to rent %{make} %{model}."
+        action: 'Log in to accept or reject this request.'
