@@ -13,125 +13,142 @@
   -#  %span.day-rent-end
   -#    %input.search-car-main-wrapper{'value' => 'Do:'}
   %div.btn-search-car
-    %button.btn-content Pokaż dostępne samochody
-  %div.instruction
-    %p.instruction-intro Twój samochód może zarabiać dla Ciebie
-    %a.instruction-link Zobacz jak działa HiRide
+    %a.btn-content{'href' => '#how-it-works'} Twój samochód może zarabiać dla Ciebie, zobacz jak działa HiRide.
+  -#%div.instruction
+  -#  %p.instruction-intro Twój samochód może zarabiać dla Ciebie
+  -#  %a.instruction-link Zobacz jak działa HiRide
 
 
-%section.description-section
+%section#how-it-works.description-section
   -#%div.center-section
-  %h2.headline How it works?
+  %h2.headline Jak działa HiRide?
   %div.description-wrapper
     %div.description-content.col-md-4.protection-content
       %div.icon-container-protect
       %div.container-protect-mob-dev
         %h3.description-content-headline
-          Chronimy Twój samochód
-        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Gwarantowane bezpieczeństwo
+        %p.description-intro Nie musisz się obawiać o bezpieczeństwo swojego pojazdu. HiRide zapewnia ubezpieczenie za każdym razem gdy wypożyczasz swój samochód.
 
     %div.description-content.col-md-4.price-and-av-content
       %div.icon-container-earn
       %div.container-protect-mob-dev
         %h3.description-content-headline
-          Ty decydujesz o dostępności i cenie wypożyczenia
-        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Udostępnij swój samochód
+        %p.description-intro Ty decydujesz kiedy Twój pojazd będzie dostępny oraz sam ustalasz kwotę wynajmu.
 
     %div.description-content.col-md-4.decision-content
       %div.icon-container-agree
       %div.container-protect-mob-dev
         %h3.description-content-headline
-          Ty decydujesz kto może wypożyczyć Twój samochód
-        %p.description-intro Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Społeczność odpowiedzialnych kierowców
+        %p.description-intro Twoje bezpieczeństwo stawiamy na pierwszym miejscu, dlatego weryfikujemy każdego kierowcę, lecz do Ciebie należy decyzja czy wynajmiesz danej osobie auto.
 
-  %div.description-action
-    %button.list-car-btn Udostępnij swój samochód
-    %a.link-learn-more{'href' => '#'} Dowiedz się więcej
+      -#%div.description-action
+      -#  %button.list-car-btn Udostępnij swój samochód
+      -#  %a.link-learn-more{'href' => '#'} Dowiedz się więcej
 
 
-%section.car-list-section.container-fluid
-  %h3.headline Znajdź swój idealny samochód
-
-  %div.car-list-main
-
-    %div.main-ad-brief
-      %div.car-image-container
-        = image_tag('car_03.png', class: 'car-photo-main')
-
-      %div.car-brief-info
-        %div.car-price
-          %p.price-content
-            200 zł
-            %span.price-content-add /dzień
-
-        %div.car-short-info
-          %p.car-model BMW M5
-          %p.car-owner
-            Samochód użytkownika:
-            %span.car-owner-name Steve Rogers
-          -#%div.rate
-          -#  %p *****
-
-    %div.ad-brief
-      %div.car-image-container
-        = image_tag('car_06.png', class: 'car-photo-main')
-
-      %div.car-price
-        %p.price-content
-          200 zł
-          %span.price-content-add /dzień
-
-  %div.car-list-further
-    %div.ad-brief
-      %div.car-image-container
-        = image_tag('car_08.png', class: 'car-photo-main')
-      %div.car-price
-        %p.price-content
-          200 zł
-          %span.price-content-add /dzień
-
-    %div.ad-brief
-      %div.car-image-container
-        = image_tag('car_06.png', class: 'car-photo-main')
-      %div.car-price
-        %p.price-content
-          200 zł
-          %span.price-content-add /dzień
-
-    %div.ad-brief
-      %div.car-image-container
-        = image_tag('car_10.jpg', class: 'car-photo-main')
-      %div.car-price
-        %p.price-content
-          200 zł
-          %span.price-content-add /dzień
-
-  %section.search-car-section.col-md-8.col-md-offset-2
-    -#%select
-    -#  %option{'value' => 'Audi'} Audi
-    -#  %option{'value' => 'BMW'} BMW
-    -#  %option{'value' => 'Honda'} Honda
-    -#  %option{'value' => 'Opel'} Opel
-    -#%select
-    -#  %option{'value' => 'Warszawa'} Warszawa
-    %button.find-car-btn Znajdź samochód
+-#%section.car-list-section.container-fluid
+-#  %h3.headline Znajdź swój idealny samochód
+-#
+-#  %div.car-list-main
+-#
+-#    %div.main-ad-brief
+-#      %div.car-image-container
+-#        = image_tag('car_03.png', class: 'car-photo-main')
+-#
+-#      %div.car-brief-info
+-#        %div.car-price
+-#          %p.price-content
+-#            200 zł
+-#            %span.price-content-add /dzień
+-#
+-#        %div.car-short-info
+-#          %p.car-model BMW M5
+-#          %p.car-owner
+-#            Samochód użytkownika:
+-#            %span.car-owner-name Steve Rogers
+-#          -#%div.rate
+-#          -#  %p *****
+-#
+-#    %div.ad-brief
+-#      %div.car-image-container
+-#        = image_tag('car_06.png', class: 'car-photo-main')
+-#
+-#      %div.car-price
+-#        %p.price-content
+-#          200 zł
+-#          %span.price-content-add /dzień
+-#
+-#  %div.car-list-further
+-#    %div.ad-brief
+-#      %div.car-image-container
+-#        = image_tag('car_08.png', class: 'car-photo-main')
+-#      %div.car-price
+-#        %p.price-content
+-#          200 zł
+-#          %span.price-content-add /dzień
+-#
+-#    %div.ad-brief
+-#      %div.car-image-container
+-#        = image_tag('car_06.png', class: 'car-photo-main')
+-#      %div.car-price
+-#        %p.price-content
+-#          200 zł
+-#          %span.price-content-add /dzień
+-#
+-#    %div.ad-brief
+-#      %div.car-image-container
+-#        = image_tag('car_10.jpg', class: 'car-photo-main')
+-#      %div.car-price
+-#        %p.price-content
+-#          200 zł
+-#          %span.price-content-add /dzień
+-#
+-#  %section.search-car-section.col-md-8.col-md-offset-2
+-#    -#%select
+-#    -#  %option{'value' => 'Audi'} Audi
+-#    -#  %option{'value' => 'BMW'} BMW
+-#    -#  %option{'value' => 'Honda'} Honda
+-#    -#  %option{'value' => 'Opel'} Opel
+-#    -#%select
+-#    -#  %option{'value' => 'Warszawa'} Warszawa
+-#    %button.find-car-btn Znajdź samochód
 
 
 %section.additional-information-section
-  %div.long-term-info-section
-    %h3.headline
-      Wypożyczenia
-      %br
-      %span.headline-important długoterminowe
-  %div.airport-info-section
-    %h3.headline
-      HiRide
-      %span.headline-sec
-        dostępne
-      %span.headline-important na lotnisku
+  -#%div.long-term-info-section
+  -#  %h3.headline
+  -#    Wypożyczenia
+  -#    %br
+  -#    %span.headline-important długoterminowe
+  -#%div.airport-info-section
+  -#  %h3.headline
+  -#    HiRide
+  -#    %span.headline-sec
+  -#      dostępne
+  -#    %span.headline-important na lotnisku
+
+  %div.mobile-app-intro
+    %h3.headline-mobile Setki samochodów w Twojej kieszeni
+  %div.mobile-app-content
+    = image_tag('phone_bialy.png', class: 'mobile-app-photo')
+
 
 %section.additional-action-section
-  %div.list-car-wrapper.col-md-6
-    %button.list-car-btn Udostępnij swój samochód
-  %div.list-car-wrapper-mob-dev.col-md-6
-    %button.find-car-btn Znajdź samochód
+  %h3.headline Bądź pierwszym który dowie się o starcie aplikacji
+  %div.list-car-wrapper.col-md-12
+    %span.email-placeholder
+      %input.email-placeholder-content{'type' => 'text', 'placeholder' => 'email'}
+    %button.list-car-btn Chce otrzymać informacje
+    %p.additional-info Twój e-mail zostanie użyty jedynie do poinformowania Cię o dostępności aplikacji
+  -#%div.list-car-wrapper-mob-dev.col-md-6
+  -#  %button.find-car-btn Znajdź samochód
+
+
+%section.additional-action-section.addition-question
+  %h3.headline Masz pytania?
+  %p.addition-question-description Jeśli masz jakieś pytanie, jest jakaś funkcjonalność, którą chciałbyś u nas zobaczyć, skontaktuj się z nami. Jesteśmy do Twojej dyspozycji.
+  %div.list-car-wrapper.col-md-12
+    %a.list-car-btn{"href" => "mailto:daniel@hiride.co?bcc=piotrek@hiride.co"} Napisz do nas

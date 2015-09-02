@@ -4,37 +4,37 @@
       %h3.logo{'ui-sref' => 'main.home'}
         HiRide
     %div.navigation-list-container
-      %ul.navigation-list
-        %li.car-list-nav-btn
-          %a{'ui-sref' => 'main.carList', translate: true}NAVBAR.CAR_LIST
-        %li.add-car-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.dashboard', translate: true}NAVBAR.DASHBOARD
-        %li.add-car-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.carNew', translate: true}NAVBAR.ADD_CAR
-        -#%li.profile-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
-        -#  %a{'ui-sref' => 'main.profile', translate: true}NAVBAR.EDIT_PROFILE
-        %li.sign-out-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
-          %a{'ng-click' => 'mainCtrl.signOut()', translate: true}NAVBAR.SIGN_OUT
-        %li.sign-in-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.signIn', translate: true}NAVBAR.SIGN_IN
-        %li.sign-up-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
-          %a{'ui-sref' => 'main.signUp', translate: true}NAVBAR.SIGN_UP
+      -#%ul.navigation-list
+      -#  %li.car-list-nav-btn
+      -#    %a{'ui-sref' => 'main.carList', translate: true}NAVBAR.CAR_LIST
+      -#  %li.add-car-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
+      -#    %a{'ui-sref' => 'main.dashboard', translate: true}NAVBAR.DASHBOARD
+      -#  %li.add-car-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
+      -#    %a{'ui-sref' => 'main.carNew', translate: true}NAVBAR.ADD_CAR
+      -#  -#%li.profile-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
+      -#  -#  %a{'ui-sref' => 'main.profile', translate: true}NAVBAR.EDIT_PROFILE
+      -#  %li.sign-out-nav-btn{'ng-if' => 'mainCtrl.isAuthenticated'}
+      -#    %a{'ng-click' => 'mainCtrl.signOut()', translate: true}NAVBAR.SIGN_OUT
+      -#  %li.sign-in-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
+      -#    %a{'ui-sref' => 'main.signIn', translate: true}NAVBAR.SIGN_IN
+      -#  %li.sign-up-nav-btn{'ng-if' => '!mainCtrl.isAuthenticated'}
+      -#    %a{'ui-sref' => 'main.signUp', translate: true}NAVBAR.SIGN_UP
 %div.content{'ui-view' => true}
 
 %footer.footer-main
   %div.social-media-container.col-md-6
     %ul.social-media-list
       %li.social-facebook
-        %a{'href' => '#'} Facebook
+        %a{"href" => "https://www.facebook.com/pages/HiRide/1433253593669703", "target" => "_blank"} Facebook
       %li.social-instagram
-        %a{'href' => '#'} Instagram
-      %li.social-twitter
-        %a{'href' => '#'} Twitter
-  %div.footer-nav-container.col-md-6
-    %ul.about-company-info-list
-      %li
-        %a O HiRide
-      %li
-        %a Jak działa HiRide
-      %li
-        %a Regulamin
+        %a{"href" => "https://instagram.com/hiride.co/", "target" => "_blank"} Instagram
+
+  -#%div.footer-nav-container.col-md-6
+  -#  %p Warszawa
+    -#%ul.about-company-info-list
+    -#  %li
+    -#    %a O HiRide
+    -#  %li
+    -#    %a Jak działa HiRide
+    -#  %li
+    -#    %a Regulamin

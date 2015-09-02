@@ -80,12 +80,13 @@ body
       cursor: pointer
 
 .btn-search-car
-  margin: 21px 0 40px
+  margin: 90px 0 40px
 
   .btn-content
     background: $blue-sea-btn
     border: none
     color: $white
+    display: inline-block
     font-size: 1.125em
     font-weight: 300
     padding: 22px 0
@@ -98,9 +99,11 @@ body
 
 .description-section
 
-  background-image: url(bg-how-it-works.jpg)
-  background-repeat: repeat-y
-  padding: 110px 0 65px
+  //background-image: url(bg-how-it-works.jpg)
+  //background-repeat: repeat-y
+  //padding: 110px 0 65px
+
+  padding: 100px 0 100px
 
   .description-wrapper
     display: table
@@ -140,7 +143,7 @@ body
 
     .description-content-headline
       color: $blue-sea-btn
-      font-size: 1em
+      font-size: 1.25em
       font-weight: 100
       line-height: 20px
       text-align: center
@@ -323,52 +326,72 @@ body
 // Additional information section - information about long term rental and airport availability
 
 .additional-information-section
+  background: url(bg-gr-iphone.jpg)
   height: 500px
 
-  .long-term-info-section
-    background: url(long-term-icon.png) no-repeat
-    background-size: cover
-    background-position: 100% 100%
-    display: inline-block
-    height: inherit
-    position: relative
-    width: 50%
+  //.long-term-info-section
+  //  background: url(long-term-icon.png) no-repeat
+  //  background-size: cover
+  //  background-position: 100% 100%
+  //  display: inline-block
+  //  height: inherit
+  //  position: relative
+  //  width: 50%
+  //
+  //  .headline
+  //    color: $white
+  //    font-size: 2.55em
+  //    font-weight: 100
+  //    line-height: 55px
+  //    position: absolute
+  //    left: 28%
+  //    top: 17%
+  //    text-align: left
+  //
+  //.airport-info-section
+  //  background: url(airport-bg.png) no-repeat
+  //  background-size: cover
+  //  display: inline-block
+  //  height: inherit
+  //  float: right
+  //  position: relative
+  //  width: 50%
+  //
+  //.headline
+  //  color: $white
+  //  font-size: 2.55em
+  //  font-weight: 100
+  //  line-height: 55px
+  //  left: 10%
+  //  top: 35%
+  //  position: absolute
+  //
+  //.headline-sec
+  //  display: block
+  //  font-weight: 100
+  //
+  //.headline-important
+  //  font-weight: 800
 
-    .headline
+  .mobile-app-intro
+    display: inline-block
+    width: 49%
+    text-align: center
+
+    .headline-mobile
       color: $white
-      font-size: 2.55em
+      font-size: 3.75em
       font-weight: 100
       line-height: 55px
-      position: absolute
-      left: 28%
-      top: 17%
-      text-align: left
 
-  .airport-info-section
-    background: url(airport-bg.png) no-repeat
-    background-size: cover
+  .mobile-app-content
     display: inline-block
-    height: inherit
-    float: right
-    position: relative
+    text-align: center
     width: 50%
 
-  .headline
-    color: $white
-    font-size: 2.55em
-    font-weight: 100
-    line-height: 55px
-    left: 10%
-    top: 35%
-    position: absolute
-
-  .headline-sec
-    display: block
-    font-weight: 100
-
-  .headline-important
-    font-weight: 800
-
+  .mobile-app-photo
+    width: 289px
+    padding: 5% 0% 0%
 
 // aditional action section
 
@@ -380,7 +403,8 @@ body
   //overflow: hidden
 
   .list-car-wrapper
-    text-align: right
+    margin: 30px 0 20px
+    text-align: center // temporary
 
   .list-car-btn
     background: #36c1d5
@@ -407,6 +431,31 @@ body
       position: absolute
       width: 10px
 
+  .additional-info
+    color: $grey-inputs
+    font-size: 11px
+    margin-top: 10px
+
+  .email-placeholder-content
+    background: transparent
+    color: $blue-additional-decorative-btn
+    border: 2px $blue-additional-decorative-btn solid
+    padding: 13px 41px 14px 20px
+
+  .email-placeholder
+    display: inline-block
+    position: relative
+
+    &:before
+      background: $blue-additional-decorative-btn
+      content: ''
+      height: 48px
+      left: 0px
+      top: 0px
+      position: absolute
+      width: 10px
+
+
   .find-car-btn
     background: transparent
     color: $blue-additional-decorative-btn
@@ -422,3 +471,18 @@ body
       top: 0px
       position: absolute
       width: 10px
+
+  .headline
+    color: #36c1d5
+    font-size: 2.55em
+    font-weight: 100
+    text-align: center
+    text-transform: uppercase
+
+.addition-question
+  padding: 100px 0 150px
+
+  .addition-question-description
+    margin: 0 auto
+    text-align: center
+    width: 50%
