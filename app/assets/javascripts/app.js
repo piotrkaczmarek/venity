@@ -10,6 +10,7 @@
       'templates',
       'pascalprecht.translate',
       'ngFileUpload',
+      'duScroll',
       'Devise'
     ])
     .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', '$httpProvider', '$translateProvider', 'translations', function(
