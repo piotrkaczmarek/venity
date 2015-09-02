@@ -5,12 +5,13 @@
     "ui-router": "latest",
     "bootstrap-sass-official": "latest",
     "angular-bootstrap": "latest",
-    "angular-ui-calendar": "latest",
     "locator": "git://github.com/winkerVSbecks/locator",
     "angular-devise": "latest",
     "angular-translate": "latest",
+    "angular-ui-calendar": "latest",
     "ng-file-upload": "latest",
     "underscore": "latest",
-    "angular-mocks": "latest"
+    "angular-mocks": "latest",
+    "angular-scroll": "latest"
   }
 }

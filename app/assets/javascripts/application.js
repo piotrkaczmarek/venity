@@ -23,6 +23,7 @@
 //= require angular-ui-calendar
 //= require fullcalendar
 //= require ng-file-upload
+//= require angular-scroll
 //= require locator
 //= require locator/dist/locator-tpl
 //= require_tree .
