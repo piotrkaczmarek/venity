@@ -138,10 +138,10 @@
 
 %section.additional-action-section
   %h3.headline Bądź pierwszym który dowie się o starcie aplikacji
-  %div.list-car-wrapper.col-md-12
+  %form.list-car-wrapper.col-md-12{'ng-submit' => 'vm.addContact()', 'ng-hide' => 'vm.contactAdded'}
     %span.email-placeholder
-      %input.email-placeholder-content{'type' => 'text', 'placeholder' => 'email'}
-    %button.list-car-btn Chce otrzymać informacje
+      %input.email-placeholder-content{'type' => 'text', 'placeholder' => 'email', 'ng-model' => 'vm.email'}
+    %button.list-car-btn Chcę otrzymać informacje
     %p.additional-info Twój e-mail zostanie użyty jedynie do poinformowania Cię o dostępności aplikacji
   -#%div.list-car-wrapper-mob-dev.col-md-6
   -#  %button.find-car-btn Znajdź samochód
@@ -151,4 +151,4 @@
   %h3.headline Masz pytania?
   %p.addition-question-description Jeśli masz jakieś pytanie, jest jakaś funkcjonalność, którą chciałbyś u nas zobaczyć, skontaktuj się z nami. Jesteśmy do Twojej dyspozycji.
   %div.list-car-wrapper.col-md-12
-    %a.list-car-btn{"href" => "mailto:daniel@hiride.co?bcc=piotrek@hiride.co"} Napisz do nas
+    %a.list-car-btn{"href" => "mailto:daniel@hiride.co?bcc=piotr@hiride.co"} Napisz do nas

@@ -4,9 +4,17 @@
     .module('venity')
     .controller('HomeCtrl', HomeCtrl);
 
-    HomeCtrl.$inject = [];
+    HomeCtrl.$inject = ['$http'];
 
-    function HomeCtrl() {
+    function HomeCtrl($http) {
+      var vm = this;
+      vm.addContact = addContact;
 
+      function addContact() {
+        $http.post('api/contacts', { email: vm.email })
+          .success(function() {
+            vm.email = '';
+          });
+      }
     }
 })();

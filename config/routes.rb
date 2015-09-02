@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         put :accept, on: :member
         put :reject, on: :member
       end
+      resources :contacts, only: [:create]
     end
   end
   # Example of regular route:

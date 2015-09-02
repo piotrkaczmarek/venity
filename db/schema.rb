@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811215321) do
+ActiveRecord::Schema.define(version: 20150902193723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 20150811215321) do
     t.integer "production_year"
     t.integer "owner_id"
     t.string  "photo"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "email"
   end
 
   create_table "profiles", force: :cascade do |t|
